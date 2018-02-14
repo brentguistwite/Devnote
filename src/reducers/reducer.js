@@ -12,7 +12,7 @@ const initialState = {
   notes: [''],
   sortedBy: '',
   currentDraft: '',
-  // whole note object
+  preview: false,
 };
 
 

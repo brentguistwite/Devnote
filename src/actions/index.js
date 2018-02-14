@@ -6,6 +6,12 @@ export const editNote = newDraft => ({
   newDraft,
 });
 
+export const CHANGE_NOTE_VIEW = 'CHANGE_NOTE_VIEW';
+export const changeNoteView = noteId => ({
+  type: CHANGE_NOTE_VIEW,
+  noteId,
+});
+
 export const FETCH_NOTES_REQUEST = 'FETCH_NOTES_REQUEST';
 export const fetchNotesRequest = () => ({
   type: FETCH_NOTES_REQUEST,
