@@ -1,5 +1,11 @@
 import apiUrl from '../config';
 
+export const EDIT_NOTE = 'EDIT_NOTE';
+export const editNote = newDraft => ({
+  type: EDIT_NOTE,
+  newDraft,
+});
+
 export const FETCH_NOTES_REQUEST = 'FETCH_NOTES_REQUEST';
 export const fetchNotesRequest = () => ({
   type: FETCH_NOTES_REQUEST,
@@ -35,6 +41,7 @@ export const fetchNotes = () => (dispatch) => {
     .then((notes) => {
       dispatch(fetchNotesSuccess(notes));
     })
-    .catch(err =>
-      dispatch(fetchNotesError(err)));
+    .catch((err) => {
+      dispatch(fetchNotesError(err));
+    });
 };

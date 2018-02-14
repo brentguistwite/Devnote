@@ -3,6 +3,7 @@ import {
   FETCH_NOTES_REQUEST,
   FETCH_NOTES_SUCCESS,
   ADD_NOTE,
+  EDIT_NOTE,
 } from '../actions';
 
 const initialState = {
@@ -10,7 +11,8 @@ const initialState = {
   loading: false,
   notes: [''],
   sortedBy: '',
-
+  currentDraft: '',
+  // whole note object
 };
 
 
@@ -31,17 +33,24 @@ const reducer = (state = initialState, action) => {
       loading: true,
     };
   case FETCH_NOTES_SUCCESS:
-    console.log('hi');
+    console.log(action.notes);
     return {
       ...state,
       error: null,
       loading: false,
       notes: action.notes,
+      currentDraft: action.notes[0].content,
     };
   case ADD_NOTE:
     return {
       ...state,
       notes: action.notes,
+    };
+  case EDIT_NOTE:
+    console.log('hello from edit note');
+    return {
+      ...state,
+      currentDraft: action.newDraft,
     };
   default:
     return state;

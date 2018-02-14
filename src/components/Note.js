@@ -1,22 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Field, reduxForm } from 'redux-form';
+import { editNote } from '../actions';
 
 export function Note(props) {
   return (
     <div className="note-form">
-      <form>
-        <input type="text" />
-        <button value="save" />
-      </form>
+      <textarea
+        value={props.currentDraft}
+        onChange={event => props.dispatch(editNote(event.target.value))}
+      />
     </div>
   );
 }
-
-
 const mapStateToProps = state => ({
-  notes: [state.notes],
+  currentDraft: state.currentDraft,
 });
-
-
 export default connect(mapStateToProps)(Note);

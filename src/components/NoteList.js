@@ -10,7 +10,7 @@ export class NoteList extends React.Component {
   }
   render() {
     console.log(this.props);
-    const notes = this.props.notes[0].map((note, index) => (
+    const notes = this.props.notes.map((note, index) => (
       <li className="notes-list-item" key={index}>
         <h1>{note.title}</h1>
         <span>{note.lastEdited}</span>
@@ -21,13 +21,13 @@ export class NoteList extends React.Component {
     return (
       <div className="notes-nav">
         <h2>Notes</h2>
-        <Note notes={notes} />
+        <Note />
         <ul className="notes-list">{notes}</ul>
       </div>
     );
   }
 }
 const mapStateToProps = state => ({
-  notes: [state.notes],
+  notes: state.notes,
 });
 export default connect(mapStateToProps)(NoteList);
