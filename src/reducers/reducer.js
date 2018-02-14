@@ -6,7 +6,10 @@ import {
 } from '../actions';
 
 const initialState = {
+  error: null,
+  loading: false,
   notes: [''],
+
 };
 
 
@@ -27,18 +30,17 @@ const reducer = (state = initialState, action) => {
       loading: true,
     };
   case FETCH_NOTES_SUCCESS:
-    console.log('req success');
+    console.log('hi');
     return {
       ...state,
       error: null,
       loading: false,
-      folders: action.notes,
+      notes: action.notes,
     };
   case ADD_NOTE:
     return {
       ...state,
-      notes: [...state.notes,
-        action.notes],
+      notes: action.notes,
     };
   default:
     return state;

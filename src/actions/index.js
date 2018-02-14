@@ -6,9 +6,9 @@ export const fetchNotesRequest = () => ({
 });
 
 export const FETCH_NOTES_SUCCESS = 'FETCH_NOTES_SUCCESS';
-export const fetchNotesSuccess = NOTES => ({
+export const fetchNotesSuccess = notes => ({
   type: FETCH_NOTES_SUCCESS,
-  NOTES,
+  notes,
 });
 
 export const FETCH_NOTES_ERROR = 'FETCH_NOTES_ERROR';
@@ -18,9 +18,9 @@ export const fetchNotesError = error => ({
 });
 
 export const ADD_NOTE = 'ADD_NOTE';
-export const addNote = NOTE => ({
+export const addNote = note => ({
   type: ADD_NOTE,
-  NOTE,
+  note,
 });
 
 export const fetchNotes = () => (dispatch) => {
@@ -32,8 +32,9 @@ export const fetchNotes = () => (dispatch) => {
       }
       return res.json();
     })
-    .then(notes =>
-      dispatch(fetchNotesSuccess(notes)))
+    .then((notes) => {
+      dispatch(fetchNotesSuccess(notes));
+    })
     .catch(err =>
       dispatch(fetchNotesError(err)));
 };

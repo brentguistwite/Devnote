@@ -3,28 +3,29 @@ import { connect } from 'react-redux';
 import { fetchNotes } from './../actions';
 import './NoteList.css';
 
-export class FolderList extends React.Component {
+export class NoteList extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchNotes());
   }
   render() {
     console.log(this.props);
-    const folders = this.props.folders.map((folder, index) => (
-      <li className="folder-list-item" key={index}>
-        {folder}
+    const notes = this.props.notes[0].map((note, index) => (
+      <li className="notes-list-item" key={index}>
+        <h1>{note.title}</h1>
+        <span>{note.lastEdited}</span>
       </li>
 
     ));
-
+    console.log(notes);
     return (
-      <div className="folder-nav">
+      <div className="notes-nav">
         <h2>Notes</h2>
-        <ul className="folder-list">{folders}</ul>
+        <ul className="notes-list">{notes}</ul>
       </div>
     );
   }
 }
 const mapStateToProps = state => ({
-  folders: [state.folders],
+  notes: [state.notes],
 });
-export default connect(mapStateToProps)(FolderList);
+export default connect(mapStateToProps)(NoteList);
