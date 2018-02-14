@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchNotes } from './../actions';
+import Note from './Note';
 import './NoteList.css';
 
 export class NoteList extends React.Component {
@@ -20,6 +21,7 @@ export class NoteList extends React.Component {
     return (
       <div className="notes-nav">
         <h2>Notes</h2>
+        <Note notes={notes} />
         <ul className="notes-list">{notes}</ul>
       </div>
     );

@@ -1,20 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
 
 export function Note(props) {
   return (
-    <div className="note">
-      <h2 className="note-title">{props.title}</h2>
-      <div className="note-content">
-        {props.content}
-      </div>
+    <div className="note-form">
+      <form>
+        <input type="text" />
+        <button value="save" />
+      </form>
     </div>
   );
 }
 
-const mapStateToProps = (state, props) => {
-  console.log();
-  console.log(props);
-};
+
+const mapStateToProps = state => ({
+  notes: [state.notes],
+});
+
 
 export default connect(mapStateToProps)(Note);

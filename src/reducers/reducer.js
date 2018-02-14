@@ -9,6 +9,7 @@ const initialState = {
   error: null,
   loading: false,
   notes: [''],
+  sortedBy: '',
 
 };
 
