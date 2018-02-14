@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import { editNote } from '../actions';
 
 export function Note(props) {
+  console.log(props);
   return (
     <div className="note-form">
       <textarea
-        value={props.currentDraft}
+        data={props.currentDraft.id}
+        value={props.currentDraft.content}
         onChange={event => props.dispatch(editNote(event.target.value))}
       />
     </div>

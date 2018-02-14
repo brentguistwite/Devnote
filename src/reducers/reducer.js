@@ -39,7 +39,7 @@ const reducer = (state = initialState, action) => {
       error: null,
       loading: false,
       notes: action.notes,
-      currentDraft: action.notes[0].content,
+      currentDraft: action.notes[0],
     };
   case ADD_NOTE:
     return {
