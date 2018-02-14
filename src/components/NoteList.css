@@ -1,0 +1,17 @@
+.folder-nav {
+    min-width: 100px;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    margin-right: 10px;
+}
+
+.folder-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.folder-list-item {
+    padding: 10px;
+    border-top: 1px solid #000;
+}
