@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { 
   editNote, 
-  saveNoteToDb, 
+  updateNoteInDb, 
   postNote,
   updateNewNoteTitle,
   updateNewNoteContent,
@@ -50,7 +50,7 @@ export function NoteView(props) {
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            props.dispatch(saveNoteToDb(props.currentDraft));
+            props.dispatch(updateNoteInDb(props.currentDraft));
           }}
         >
           <h1>

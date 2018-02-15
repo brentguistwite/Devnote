@@ -36,7 +36,7 @@ export const saveSuccess = notes => ({
 });
 
 export const ADD_NOTE = 'ADD_NOTE';
-export const addNote = note => ({
+export const addNote = () => ({
   type: ADD_NOTE,
 });
 
@@ -58,32 +58,6 @@ export const updateNewNoteTags = tags => ({
   tags,
 });
 
-// return fetch(`${apiUrl}/notes`, {
-//   method: 'POST',
-//   body: JSON.stringify(values),
-//   headers: {
-//     'Content-Type': 'application/json'
-//   }
-// })
-//   .then(res => {
-//     if (!res.ok) {
-//       if (
-//         res.headers.has('content-type') &&
-//         res.headers
-//           .get('content-type')
-//           .startsWith('application/json')
-//       ) {
-//         // It's a nice JSON error returned by us, so decode it
-//         return res.json().then(err => Promise.reject(err));
-//       }
-//       // It's a less informative error returned by express
-//       return Promise.reject({
-//         code: res.status,
-//         message: res.statusText
-//       });
-//     }
-//     return;
- 
 
 export const postNote = (note) => (dispatch) => {
   console.log('postNote called', note);
@@ -129,18 +103,19 @@ export const fetchNotes = () => (dispatch) => {
     });
 };
 
-export const saveNoteToDb = (note) => (dispatch) => {
+export const updateNoteInDb = (note) => (dispatch) => {
   dispatch(fetchNotesRequest());
-  console.log('hello world', note)
-  return fetch(`${apiUrl}/notes`)
-    .then((res) => {
-      if (!res.ok) {
-        return Promise.reject(res.statusText);
-      }
-      return res.json();
-    })
-    .then((notes) => {
-      dispatch(saveSuccess(notes));
+  console.log('updateNoteInDb', note);
+  return fetch(`${apiUrl}/notes/${note.id}`, {
+    method: 'PUT',
+    body: JSON.stringify(note),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then((note) => {
+      console.log(note)
+      dispatch(saveSuccess(note));
     })
     .catch((err) => {
       dispatch(fetchNotesError(err));
