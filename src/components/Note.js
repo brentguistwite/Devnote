@@ -11,7 +11,7 @@ export function Note(props) {
         onChange={event => props.dispatch(editNote(event.target.value))}
       />
     </div>
-  );
+  ); 
 }
 const mapStateToProps = state => ({
   currentDraft: state.currentDraft,
