@@ -60,7 +60,6 @@ export const updateNewNoteTags = tags => ({
 
 
 export const postNote = (note) => (dispatch) => {
-  console.log('postNote called', note);
   dispatch(fetchNotesRequest());
   return fetch(`${apiUrl}/notes`, {
     method: 'POST',
@@ -70,15 +69,12 @@ export const postNote = (note) => (dispatch) => {
     }
   })
     .then((res) => {
-      console.log('res from inside postNote',res);
       if (!res.ok) {
         return Promise.reject(res.statusText);
       }
-      console.log('hello from return resjson')
       return res.json();
     })
     .then((note) => {
-      console.log(note, 'save success')
       dispatch(saveSuccess(note));
     })
     .catch((err) => {
@@ -105,7 +101,6 @@ export const fetchNotes = () => (dispatch) => {
 
 export const updateNoteInDb = (note) => (dispatch) => {
   dispatch(fetchNotesRequest());
-  console.log('updateNoteInDb', note);
   return fetch(`${apiUrl}/notes/${note.id}`, {
     method: 'PUT',
     body: JSON.stringify(note),
@@ -113,10 +108,7 @@ export const updateNoteInDb = (note) => (dispatch) => {
       'Content-Type': 'application/json'
     }
   })
-    .then((note) => {
-      console.log(note)
-      dispatch(fetchNotes());
-    })
+    .then(() => dispatch(fetchNotes()))
     .catch((err) => {
       dispatch(fetchNotesError(err));
     });

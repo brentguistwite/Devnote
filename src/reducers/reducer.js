@@ -88,7 +88,6 @@ const reducer = (state = initialState, action) => {
       }    
     };    
   case SAVE_SUCCESS:
-  console.log(action);
     return {
       ...state,
       loading: false,
