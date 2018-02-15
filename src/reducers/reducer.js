@@ -47,9 +47,9 @@ const reducer = (state = initialState, action) => {
       ...state,
       error: null,
       currentDraft: action.note,
+      creatingNote: false
     };
   case ADD_NOTE:
-    console.log('add note');
     return {
       ...state,
       creatingNote: true,
@@ -57,7 +57,10 @@ const reducer = (state = initialState, action) => {
   case EDIT_NOTE:
     return {
       ...state,
-      currentDraft: action.newDraft,
+      currentDraft: { 
+        ...state.currentDraft,
+        content: action.newDraft,
+      }    
     };    
   case SAVE_SUCCESS:
     return {
@@ -65,6 +68,7 @@ const reducer = (state = initialState, action) => {
       loading: false,
       saved: true,
       notes: action.notes,
+      creatingNote: false
     };
 
   default:

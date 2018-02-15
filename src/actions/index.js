@@ -59,17 +59,18 @@ export const fetchNotes = () => (dispatch) => {
 
 export const saveNoteToDb = (notes) => (dispatch) => {
   dispatch(fetchNotesRequest());
-  return fetch(`${apiUrl}/notes`)
-    .then((res) => {
-      if (!res.ok) {
-        return Promise.reject(res.statusText);
-      }
-      return res.json();
-    })
-    .then((notes) => {
-      dispatch(saveSuccess(notes));
-    })
-    .catch((err) => {
-      dispatch(fetchNotesError(err));
-    });
+  console.log('hello world')
+  // return fetch(`${apiUrl}/notes`)
+  //   .then((res) => {
+  //     if (!res.ok) {
+  //       return Promise.reject(res.statusText);
+  //     }
+  //     return res.json();
+  //   })
+  //   .then((notes) => {
+  //     dispatch(saveSuccess(notes));
+  //   })
+  //   .catch((err) => {
+  //     dispatch(fetchNotesError(err));
+  //   });
 };
