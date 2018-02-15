@@ -29,10 +29,15 @@ export const fetchNotesError = error => ({
   error,
 });
 
+export const SAVE_SUCCESS = 'SAVE_SUCCESS';
+export const saveSuccess = notes => ({
+  type: SAVE_SUCCESS,
+  notes,
+});
+
 export const ADD_NOTE = 'ADD_NOTE';
 export const addNote = note => ({
   type: ADD_NOTE,
-  note,
 });
 
 export const fetchNotes = () => (dispatch) => {
@@ -46,6 +51,23 @@ export const fetchNotes = () => (dispatch) => {
     })
     .then((notes) => {
       dispatch(fetchNotesSuccess(notes));
+    })
+    .catch((err) => {
+      dispatch(fetchNotesError(err));
+    });
+};
+
+export const saveNoteToDb = (notes) => (dispatch) => {
+  dispatch(fetchNotesRequest());
+  return fetch(`${apiUrl}/notes`)
+    .then((res) => {
+      if (!res.ok) {
+        return Promise.reject(res.statusText);
+      }
+      return res.json();
+    })
+    .then((notes) => {
+      dispatch(saveSuccess(notes));
     })
     .catch((err) => {
       dispatch(fetchNotesError(err));

@@ -5,14 +5,17 @@ import {
   ADD_NOTE,
   EDIT_NOTE,
   CHANGE_NOTE_VIEW,
+  SAVE_SUCCESS,
 } from '../actions';
 
 const initialState = {
-  error: null,
   loading: false,
+  error: null,
+  saved: false,
   notes: [''],
   sortedBy: '',
   currentDraft: '',
+  creatingNote: false,
   preview: false,
 };
 
@@ -21,21 +24,21 @@ const reducer = (state = initialState, action) => {
   case FETCH_NOTES_ERROR:
     return {
       ...state,
-      error: action.error,
       loading: false,
+      error: action.error,
       notes: [],
     };
   case FETCH_NOTES_REQUEST:
     return {
       ...state,
-      error: null,
       loading: true,
+      error: null,
     };
   case FETCH_NOTES_SUCCESS:
     return {
       ...state,
-      error: null,
       loading: false,
+      error: null,
       notes: action.notes,
       currentDraft: action.notes[0],
     };
@@ -43,19 +46,27 @@ const reducer = (state = initialState, action) => {
     return {
       ...state,
       error: null,
-      loading: false,
       currentDraft: action.note,
     };
   case ADD_NOTE:
+    console.log('add note');
     return {
       ...state,
-      notes: action.notes,
+      creatingNote: true,
     };
   case EDIT_NOTE:
     return {
       ...state,
       currentDraft: action.newDraft,
+    };    
+  case SAVE_SUCCESS:
+    return {
+      ...state,
+      loading: false,
+      saved: true,
+      notes: action.notes,
     };
+
   default:
     return state;
   }
