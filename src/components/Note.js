@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { editNote } from '../actions';
 
 export function Note(props) {
-  console.log(props.currentDraft.content);
   return (
     <div className="note-form">
       <textarea

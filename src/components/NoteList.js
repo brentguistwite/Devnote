@@ -13,17 +13,14 @@ export class NoteList extends React.Component {
     this.props.dispatch(changeNoteView(JSON.parse(note)));
   }
   render() {
-    console.log(this.props);
     const notes = this.props.notes.map((note, index) => {
       const noteData = JSON.stringify(note);
-      console.log(noteData);
       return (
         <li onClick={this.handleClick.bind(this)} data-note={noteData} className="notes-list-item" key={index}>
           <h1>{note.title}</h1>
           <span>{note.lastEdited}</span>
         </li>);
     });
-    console.log(notes);
     return (
       <div className="notes-nav">
         <h2>Notes</h2>

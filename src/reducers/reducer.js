@@ -26,7 +26,6 @@ const reducer = (state = initialState, action) => {
       notes: [],
     };
   case FETCH_NOTES_REQUEST:
-    console.log('req made');
     return {
       ...state,
       error: null,
@@ -41,7 +40,6 @@ const reducer = (state = initialState, action) => {
       currentDraft: action.notes[0],
     };
   case CHANGE_NOTE_VIEW:
-  console.log(action.note);
     return {
       ...state,
       error: null,
