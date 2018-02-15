@@ -49,7 +49,7 @@ const reducer = (state = initialState, action) => {
     };
   case FETCH_NOTES_SUCCESS:
 
-// fix conditional that says if no notes then ''
+  // fix conditional that says if no notes then ''
     if (!state.currentDraft.id) {
       return {
         ...state,
