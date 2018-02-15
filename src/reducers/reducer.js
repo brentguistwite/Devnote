@@ -4,6 +4,7 @@ import {
   FETCH_NOTES_SUCCESS,
   ADD_NOTE,
   EDIT_NOTE,
+  CHANGE_NOTE_VIEW,
 } from '../actions';
 
 const initialState = {
@@ -14,7 +15,6 @@ const initialState = {
   currentDraft: '',
   preview: false,
 };
-
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -33,7 +33,6 @@ const reducer = (state = initialState, action) => {
       loading: true,
     };
   case FETCH_NOTES_SUCCESS:
-    console.log(action.notes);
     return {
       ...state,
       error: null,
@@ -41,13 +40,19 @@ const reducer = (state = initialState, action) => {
       notes: action.notes,
       currentDraft: action.notes[0],
     };
+  case CHANGE_NOTE_VIEW:
+    return {
+      ...state,
+      error: null,
+      loading: false,
+      currentDraft: action.note,
+    };
   case ADD_NOTE:
     return {
       ...state,
       notes: action.notes,
     };
   case EDIT_NOTE:
-    console.log('hello from edit note');
     return {
       ...state,
       currentDraft: action.newDraft,
