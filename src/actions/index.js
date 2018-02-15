@@ -115,7 +115,7 @@ export const updateNoteInDb = (note) => (dispatch) => {
   })
     .then((note) => {
       console.log(note)
-      dispatch(saveSuccess(note));
+      dispatch(fetchNotes());
     })
     .catch((err) => {
       dispatch(fetchNotesError(err));

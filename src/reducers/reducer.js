@@ -22,7 +22,12 @@ const initialState = {
     content: '',
     tags: [''],
   },
-  currentDraft: '',
+  currentDraft: {
+    title: '',
+    content: '',
+    tags: [''],
+    id: null,
+  },
   creatingNote: false,
   preview: false,
 };
@@ -37,20 +42,31 @@ const reducer = (state = initialState, action) => {
       notes: [],
     };
   case FETCH_NOTES_REQUEST:
-  console.log('hello from fetch notes req');
     return {
       ...state,
       loading: true,
       error: null,
     };
   case FETCH_NOTES_SUCCESS:
-    return {
-      ...state,
-      loading: false,
-      error: null,
-      notes: action.notes,
-      currentDraft: action.notes[0],
-    };
+
+// fix conditional that says if no notes then ''
+    if (!state.currentDraft.id) {
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        notes: action.notes,
+        currentDraft: action.notes[0],
+      };
+    } else {
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        notes: action.notes,
+      };
+    }
+    
   case CHANGE_NOTE_VIEW:
     return {
       ...state,
@@ -81,7 +97,8 @@ const reducer = (state = initialState, action) => {
         ...state.notes,
         action.notes,
       ],
-      creatingNote: false
+      creatingNote: false,
+      currentDraft: action.notes,
     };
   case UPDATE_NEW_NOTE_TITLE:
     return {

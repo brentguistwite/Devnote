@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import MarkdownRenderer from 'react-markdown-renderer';
 import { 
   editNote, 
   updateNoteInDb, 
@@ -65,6 +66,7 @@ export function NoteView(props) {
         Save
           </button>
         </form>
+        <MarkdownRenderer markdown={props.currentDraft.content} />
       </div>
     );
   } 
