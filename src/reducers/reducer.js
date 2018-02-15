@@ -6,6 +6,9 @@ import {
   EDIT_NOTE,
   CHANGE_NOTE_VIEW,
   SAVE_SUCCESS,
+  UPDATE_NEW_NOTE_TITLE,
+  UPDATE_NEW_NOTE_CONTENT,
+  UPDATE_NEW_NOTE_TAGS,
 } from '../actions';
 
 const initialState = {
@@ -14,6 +17,11 @@ const initialState = {
   saved: false,
   notes: [''],
   sortedBy: '',
+  newNote: {
+    title: '',
+    content: '',
+    tags: [''],
+  },
   currentDraft: '',
   creatingNote: false,
   preview: false,
@@ -29,6 +37,7 @@ const reducer = (state = initialState, action) => {
       notes: [],
     };
   case FETCH_NOTES_REQUEST:
+  console.log('hello from fetch notes req');
     return {
       ...state,
       loading: true,
@@ -63,12 +72,41 @@ const reducer = (state = initialState, action) => {
       }    
     };    
   case SAVE_SUCCESS:
+  console.log(action);
     return {
       ...state,
       loading: false,
       saved: true,
-      notes: action.notes,
+      notes: [ 
+        ...state.notes,
+        action.notes,
+      ],
       creatingNote: false
+    };
+  case UPDATE_NEW_NOTE_TITLE:
+    return {
+      ...state,
+      newNote: {
+        ...state.newNote,
+        title: action.title,
+      }
+    };
+  case UPDATE_NEW_NOTE_CONTENT:
+    return {
+      ...state,
+      newNote: {
+        ...state.newNote,
+        content: action.content,
+      }
+    };
+
+  case UPDATE_NEW_NOTE_TAGS:
+    return {
+      ...state,
+      newNote: {
+        ...state.newNote,
+        tags: action.tags,
+      }
     };
 
   default:

@@ -1,27 +1,37 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { editNote, saveNoteToDb } from '../actions';
+import { 
+  editNote, 
+  saveNoteToDb, 
+  postNote,
+  updateNewNoteTitle,
+  updateNewNoteContent,
+  updateNewNoteTags, 
+} from '../actions';
 
 export function NoteView(props) {
   if (props.creatingNote) {
-    console.log(props.currentDraft);
     return (
       <div className="note-form">
         <form 
-          onSubmit={() => props.dispatch(saveNoteToDb(props.currentDraft))}
+          onSubmit={(event) => {
+            event.preventDefault();
+            props.dispatch(postNote(props.newNote));
+          }}
         >
           <div className="title-container">
             <label htmlFor="title">Title</label>
             <input
               id="title" 
               type="text" 
-              onChange={event => props.dispatch(editNote(event.target.value))}
+              onChange={event => props.dispatch(updateNewNoteTitle(event.target.value))}
             />
           </div>
           <div className="note-container">  
             <label htmlFor="note-field">Notes</label>
             <textarea 
               id="note-field"
+              onChange={event => props.dispatch(updateNewNoteContent(event.target.value))}
             />
           </div>
           <div className="tag-container">
@@ -35,13 +45,11 @@ export function NoteView(props) {
       </div>
     );
   } else {
-    console.log(props.currentDraft);
     return (
       <div className="note-form">
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            console.log(event.currentTarget)
             props.dispatch(saveNoteToDb(props.currentDraft));
           }}
         >
@@ -64,5 +72,6 @@ export function NoteView(props) {
 const mapStateToProps = state => ({
   currentDraft: state.currentDraft,
   creatingNote: state.creatingNote,
+  newNote: state.newNote,
 });
 export default connect(mapStateToProps)(NoteView);
