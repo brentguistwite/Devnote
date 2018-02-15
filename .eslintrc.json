@@ -40,6 +40,9 @@
     "comma-dangle": [
       0
     ],
+    "react/prop-types": [
+      0
+    ],
 
     "eqeqeq": [
       1
