@@ -9,20 +9,20 @@ export class NoteList extends React.Component {
     this.props.dispatch(fetchNotes());
   }
   handleClick(e) {
-    console.log('hi');
-    const { id, content } = e.currentTarget.dataset;
-    console.log(content);
-    this.props.dispatch(changeNoteView(id));
+    const { note } = e.currentTarget.dataset;
+    this.props.dispatch(changeNoteView(JSON.parse(note)));
   }
   render() {
     console.log(this.props);
-    const notes = this.props.notes.map((note, index) => (
-      <li onClick={this.handleClick.bind(this)} data-content={note.content} data-id={note.id} className="notes-list-item" key={index}>
-        <h1>{note.title}</h1>
-        <span>{note.lastEdited}</span>
-      </li>
-
-    ));
+    const notes = this.props.notes.map((note, index) => {
+      const noteData = JSON.stringify(note);
+      console.log(noteData);
+      return (
+        <li onClick={this.handleClick.bind(this)} data-note={noteData} className="notes-list-item" key={index}>
+          <h1>{note.title}</h1>
+          <span>{note.lastEdited}</span>
+        </li>);
+    });
     console.log(notes);
     return (
       <div className="notes-nav">

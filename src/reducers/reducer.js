@@ -41,6 +41,7 @@ const reducer = (state = initialState, action) => {
       currentDraft: action.notes[0],
     };
   case CHANGE_NOTE_VIEW:
+  console.log(action.note);
     return {
       ...state,
       error: null,
