@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import MarkdownRenderer from 'react-markdown-renderer';
+import FormattedNote from './FormattedNote';
 import { 
-  editNote, 
-  updateNoteInDb, 
-  postNote,
+  editNote,
   updateNewNoteTitle,
   updateNewNoteContent,
   updateNewNoteTags, 
@@ -15,10 +13,7 @@ export function NoteView(props) {
     return (
       <div className="new-note-form">
         <form 
-          onSubmit={(event) => {
-            event.preventDefault();
-            props.dispatch(postNote(props.newNote));
-          }}
+          onSubmit={event => event.preventDefault()}
         >
           <div className="title-container">
             <label htmlFor="title">Title</label>
@@ -41,20 +36,20 @@ export function NoteView(props) {
             <label htmlFor="tag">Tags</label>
             <input id="tags" type="text" />
           </div>
-          <button>
-            Save
-          </button>
         </form>  
       </div>
+    );
+  } else if (props.markdownView) {
+    return (
+      <div className="note-form">
+        <FormattedNote />
+      </div>  
     );
   } else {
     return (
       <div className="note-form">
         <form
-          onSubmit={(event) => {
-            event.preventDefault();
-            props.dispatch(updateNoteInDb(props.currentDraft));
-          }}
+          onSubmit={event => event.preventDefault()}
         >
           <h1 className="note-title">
             {props.currentDraft.title}
@@ -65,9 +60,6 @@ export function NoteView(props) {
             value={props.currentDraft.content}
             onChange={event => props.dispatch(editNote(event.target.value))}
           />
-          <button>
-        Save
-          </button>
         </form>
         {/* <MarkdownRenderer markdown={props.currentDraft.content} /> */}
       </div>
@@ -78,5 +70,6 @@ const mapStateToProps = state => ({
   currentDraft: state.currentDraft,
   creatingNote: state.creatingNote,
   newNote: state.newNote,
+  markdownView: state.markdownView,
 });
 export default connect(mapStateToProps)(NoteView);
