@@ -9,7 +9,8 @@ export function Navbar(props) {
     <header className="header">
       <nav className="header-nav">
         <ul>
-          <li>
+          <li className="tooltip">
+            <span className="tooltiptext">New Note</span>
             <img 
               className="new-note-button" 
               src={newNote} 
@@ -45,7 +46,8 @@ export function Navbar(props) {
               id="alphabetic" 
             />
           </li>
-          <li>
+          <li className="tooltip2">
+            <span className="tooltiptext2">Save</span>
             <img 
               className="save-note-button" 
               src={save} 
