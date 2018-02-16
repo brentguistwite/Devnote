@@ -6,9 +6,9 @@ import './App.css';
 
 export default function App() {
   return (
-    <div>
-      <NoteView />
+    <div className ="app-container">
       <NoteList />
+      <NoteView />
     </div>
   );
 }

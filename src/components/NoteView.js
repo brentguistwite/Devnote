@@ -13,7 +13,7 @@ import {
 export function NoteView(props) {
   if (props.creatingNote) {
     return (
-      <div className="note-form">
+      <div className="new-note-form">
         <form 
           onSubmit={(event) => {
             event.preventDefault();
