@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addNote, updateNoteInDb, postNote } from './../actions';
+import { addNote, updateNoteInDb, postNote, toggleMarkdownView } from './../actions';
 import newNote from './../images/newNote.png';
 import save from './../images/save.png';
 
@@ -27,6 +27,7 @@ export function Navbar(props) {
             <input
               type="checkbox" 
               id="preview"
+              onClick={() => props.dispatch(toggleMarkdownView())}
             />
           </li>
           <li>

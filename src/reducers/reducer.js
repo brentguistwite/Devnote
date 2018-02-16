@@ -9,6 +9,7 @@ import {
   UPDATE_NEW_NOTE_TITLE,
   UPDATE_NEW_NOTE_CONTENT,
   UPDATE_NEW_NOTE_TAGS,
+  TOGGLE_MARKDOWN_VIEW,
 } from '../actions';
 
 const initialState = {
@@ -29,11 +30,18 @@ const initialState = {
     id: null,
   },
   creatingNote: false,
-  preview: false,
+  markdownView: false,
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+  case TOGGLE_MARKDOWN_VIEW:
+    return {
+      ...state,
+      loading: false,
+      error: null,
+      markdownView: !state.markdownView,
+    };
   case FETCH_NOTES_ERROR:
     return {
       ...state,
