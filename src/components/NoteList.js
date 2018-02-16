@@ -22,7 +22,6 @@ export class NoteList extends React.Component {
     return (
       <div
         className="notes-nav">
-        <h2>Notes</h2>
         <button
           className="new-note"
           onClick={() => this.props.dispatch(addNote())}
