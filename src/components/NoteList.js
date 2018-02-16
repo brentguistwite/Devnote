@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchNotes, changeNoteView, addNote } from './../actions';
+import { fetchNotes, changeNoteView } from './../actions';
 
 export class NoteList extends React.Component {
   componentDidMount() {
@@ -22,12 +22,6 @@ export class NoteList extends React.Component {
     return (
       <div
         className="notes-nav">
-        <button
-          className="new-note"
-          onClick={() => this.props.dispatch(addNote())}
-        >
-          New Note
-        </button>
         <ul className="notes-list">{notes}</ul>
       </div>
     );
