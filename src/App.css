@@ -16,6 +16,14 @@ input, textarea {
 
 }
 
+.save-note-button, .new-note-button {
+    width: 100px;
+}
+
+.save-note-button{
+    transform: rotate(90deg);
+}
+
  .notes-list h1 {
     font-family:'Playfair Display', serif;
     text-transform: capitalize;
