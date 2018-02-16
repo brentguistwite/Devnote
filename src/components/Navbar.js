@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addNote, updateNoteInDb } from './../actions';
+import { addNote, updateNoteInDb, postNote } from './../actions';
 import newNote from './../images/newNote.png';
 import save from './../images/save.png';
 
@@ -48,7 +48,12 @@ export function Navbar(props) {
             <img 
               className="save-note-button" 
               src={save} 
-              onClick={() => props.dispatch(updateNoteInDb(props.currentDraft))} 
+              onClick={() => {
+                props.creatingNote 
+                  ? props.dispatch(postNote(props.newNote))
+                  : props.dispatch(updateNoteInDb(props.currentDraft));
+              }
+              } 
             />
           </li>
         </ul>
@@ -57,4 +62,10 @@ export function Navbar(props) {
   );
 }
 
-export default connect()(Navbar);
+const mapStateToProps = state => ({
+  currentDraft: state.currentDraft,
+  creatingNote: state.creatingNote,
+  newNote: state.newNote,
+});
+
+export default connect(mapStateToProps)(Navbar);
