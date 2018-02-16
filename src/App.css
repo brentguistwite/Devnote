@@ -1,5 +1,25 @@
-body{
+body {
+    font-family: 'Playfair Display', serif;
     color:white;
+}
+
+input, textarea {
+    font-family: 'Playfair Display', serif;
+
+}
+
+.note-title {
+    font-family: 'Playfair Display', serif;
+    font-weight:900;
+    text-transform: capitalize;
+
+}
+
+ .notes-list h1 {
+    font-family:'Playfair Display', serif;
+    text-transform: capitalize;
+    font-weight:900;
+    font-style: italic;
 }
 
 .app-container {
@@ -11,12 +31,14 @@ body{
     border-right: 1px solid #000;
     border-bottom: 1px solid #000;
     margin-right: 10px;
+    overflow: auto;
 }
 
 .notes-list {
     list-style: none;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 .notes-list-item {
@@ -24,7 +46,26 @@ body{
     border-top: 1px solid #000;
 }
 
+.new-note-form {
+    
+    width:90%;
+    height: 800px;    
+}
+
+.title-container input {
+    border:0px;
+    color: white;
+    background-color: rgb(47, 47, 47);    
+}
+
+.note-container {
+    margin:0;
+    width:100%;
+    height: 800px;
+}
+
 .note-form {
+    
     width:90%;
     height: 800px;
 }

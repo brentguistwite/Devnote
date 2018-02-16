@@ -22,7 +22,8 @@ export function NoteView(props) {
         >
           <div className="title-container">
             <label htmlFor="title">Title</label>
-            <input
+            <input 
+              autoComplete="false"
               id="title" 
               type="text" 
               onChange={event => props.dispatch(updateNewNoteTitle(event.target.value))}
@@ -31,6 +32,7 @@ export function NoteView(props) {
           <div className="note-container">  
             <label htmlFor="note-field">Notes</label>
             <textarea 
+              autoComplete="false"
               id="note-field"
               onChange={event => props.dispatch(updateNewNoteContent(event.target.value))}
             />
@@ -54,10 +56,11 @@ export function NoteView(props) {
             props.dispatch(updateNoteInDb(props.currentDraft));
           }}
         >
-          <h1>
+          <h1 className="note-title">
             {props.currentDraft.title}
           </h1>
           <textarea
+            autoComplete="false"
             data={props.currentDraft}
             value={props.currentDraft.content}
             onChange={event => props.dispatch(editNote(event.target.value))}
@@ -66,7 +69,7 @@ export function NoteView(props) {
         Save
           </button>
         </form>
-        <MarkdownRenderer markdown={props.currentDraft.content} />
+        {/* <MarkdownRenderer markdown={props.currentDraft.content} /> */}
       </div>
     );
   } 
