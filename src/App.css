@@ -1,6 +1,7 @@
 body {
     font-family: 'Playfair Display', serif;
     color:white;
+    overflow: hidden;
 }
 
 input, textarea {
@@ -24,21 +25,24 @@ input, textarea {
 
 .app-container {
     display:flex;
+    overflow: hidden;
 }
 
 .notes-nav {
+    overflow-y: auto;
     min-width: 100px;
     border-right: 1px solid #000;
     border-bottom: 1px solid #000;
     margin-right: 10px;
-    overflow: auto;
+
 }
 
 .notes-list {
+    height: 500px;
+    overflow: auto;
     list-style: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 
 .notes-list-item {
@@ -65,7 +69,7 @@ input, textarea {
 }
 
 .note-form {
-    
+    overflow: hidden;
     width:90%;
     height: 800px;
 }
