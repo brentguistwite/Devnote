@@ -1,3 +1,5 @@
+/* HSL 14, 100, 56 */
+
 body {
     font-family: 'Playfair Display', serif;
     color:white;
@@ -96,6 +98,27 @@ form {
 #root {
     background-color:rgb(47, 47, 47);
 }
+
+.orange:checked + label:before {
+  top: -4px;
+  left: -3px;
+  width: 12px;
+  height: 22px;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid orange; /* You need to change the colour here */
+  border-bottom: 2px solid orange; /* And here */
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  -o-transform: rotate(40deg);
+  transform: rotate(40deg);
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -o-transform-origin: 100% 100%;
+  transform-origin: 100% 100%; }
 
 
 

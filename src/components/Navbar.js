@@ -16,13 +16,23 @@ export function Navbar(props) {
         type="text" 
         placeholder="Search notes"/>
       <label htmlFor="preview">Preview notes</label>
-      <input 
+      <input
+        className="orange" 
         type="checkbox" 
-        id="preview"/>
-      <label htmlFor="recent">Sort by recent</label>
-      <input 
+        id="preview"
+      />
+      <span>Sort by:</span>
+      <label htmlFor="recent">Recent</label>
+      <input
+        className="orange" 
+        checked="checked"
         type="checkbox" 
         id="recent"/>
+      <label htmlFor="alphabetic">Alphabetic</label>
+      <input
+        className="orange"
+        type="checkbox"
+        id="alphabetic" />
       <img 
         className="save-note-button" 
         src={hideList} 
