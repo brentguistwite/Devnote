@@ -29,7 +29,8 @@ export function Navbar(props) {
               type="text" 
               placeholder="Search notes"/>
           </li>
-          <li>
+          <li className="tooltip3">
+            <span className="tooltiptext3">Hide or Show Notes</span>
             <img
               className={props.hideNoteList ? 'hide-button' : 'arrow-reversed'}
               src={hideList} 
