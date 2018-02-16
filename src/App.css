@@ -1,3 +1,5 @@
+/* HSL 14, 100, 56 */
+
 body {
     font-family: 'Playfair Display', serif;
     color:white;
@@ -6,7 +8,29 @@ body {
 
 input, textarea {
     font-family: 'Playfair Display', serif;
+    outline: 0;
+}
 
+.header {
+    margin-top: -40px;
+    position:fixed;
+    background-color: rgb(47, 47, 47);
+    width: 100%;
+    
+}
+
+.header-nav {
+    width: 100%;
+}
+
+.header-nav ul {
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .note-title {
@@ -14,6 +38,116 @@ input, textarea {
     font-weight:900;
     text-transform: capitalize;
 
+}
+
+.save-note-button, .new-note-button {
+    width: 40px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip2 {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip3 {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+.tooltip2 .tooltiptext2 {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    right: 110%;
+}
+
+.tooltip3 .tooltiptext3 {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    right: 110%;
+}
+
+.tooltip2 .tooltiptext2::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+}
+
+.tooltip3 .tooltiptext3::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    transition-delay: 2s;
+    visibility: visible;
+}
+
+.tooltip2:hover .tooltiptext2 {
+    transition-delay: 2s;
+    visibility: visible;
+}
+
+.tooltip3:hover .tooltiptext3 {
+    transition-delay: 2s;
+    visibility: visible;
 }
 
  .notes-list h1 {
@@ -26,6 +160,7 @@ input, textarea {
 .app-container {
     display:flex;
     overflow: hidden;
+    margin-top: 40px;
 }
 
 .notes-nav {
@@ -73,6 +208,7 @@ input, textarea {
     width:90%;
     height: 800px;
 }
+
 textarea {
     border:0;
     color: white;
@@ -80,15 +216,29 @@ textarea {
     height: 88%;
     width: 100%;
 }
+
+.arrow-reversed {
+    transform: rotate(180deg);
+    width: 40px;
+}
+
+.hide-button {
+    width: 40px;
+}
+
+.note-title {
+    text-align: center;
+}
+
 form {
     height: 80%;
     display: block
 }
 
+.hidden {
+    display: none;
+}
+
 #root {
     background-color:rgb(47, 47, 47);
 }
-
-
-
-

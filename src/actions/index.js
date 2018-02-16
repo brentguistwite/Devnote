@@ -6,6 +6,16 @@ export const editNote = newDraft => ({
   newDraft,
 });
 
+export const HIDE_NOTE_LIST = 'HIDE_NOTE_LIST';
+export const hideNoteList = () => ({
+  type: HIDE_NOTE_LIST,
+});
+
+export const TOGGLE_MARKDOWN_VIEW = 'TOGGLE_MARKDOWN_VIEW';
+export const toggleMarkdownView = () => ({
+  type: TOGGLE_MARKDOWN_VIEW,
+});
+
 export const CHANGE_NOTE_VIEW = 'CHANGE_NOTE_VIEW';
 export const changeNoteView = note => ({
   type: CHANGE_NOTE_VIEW,
