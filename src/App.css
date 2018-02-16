@@ -1,9 +1,15 @@
+body{
+    color:white;
+}
+
 .app-container {
     display:flex;
 }
+
 .notes-nav {
     min-width: 100px;
     border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
     margin-right: 10px;
 }
 
@@ -15,7 +21,7 @@
 
 .notes-list-item {
     padding: 10px;
-    border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
 }
 
 .note-form {
@@ -23,6 +29,9 @@
     height: 800px;
 }
 textarea {
+    border:0;
+    color: white;
+    background-color: rgb(47, 47, 47);
     height: 88%;
     width: 100%;
 }
@@ -30,3 +39,11 @@ form {
     height: 80%;
     display: block
 }
+
+#root {
+    background-color:rgb(47, 47, 47);
+}
+
+
+
+

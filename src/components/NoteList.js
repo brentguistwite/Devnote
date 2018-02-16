@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchNotes, changeNoteView, addNote } from './../actions';
-import './NoteList.css';
 
 export class NoteList extends React.Component {
   componentDidMount() {
