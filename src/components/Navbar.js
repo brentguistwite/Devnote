@@ -1,8 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addNote, updateNoteInDb, postNote, toggleMarkdownView } from './../actions';
+import { addNote,
+  updateNoteInDb, 
+  postNote, 
+  toggleMarkdownView, 
+  hideNoteList 
+} from './../actions';
 import newNote from './../images/newNote.png';
 import save from './../images/save.png';
+import hideList from './../images/hideList.png';
 
 export function Navbar(props) {
   return(
@@ -22,6 +28,13 @@ export function Navbar(props) {
               onChange={(e) => console.log(e.target.value)} 
               type="text" 
               placeholder="Search notes"/>
+          </li>
+          <li>
+            <img
+              className={props.hideNoteList ? 'hide-button' : 'arrow-reversed'}
+              src={hideList} 
+              onClick={() => props.dispatch(hideNoteList())}
+            />
           </li>
           <li>
             <label htmlFor="preview">Preview notes</label>
@@ -69,6 +82,7 @@ const mapStateToProps = state => ({
   currentDraft: state.currentDraft,
   creatingNote: state.creatingNote,
   newNote: state.newNote,
+  hideNoteList: state.hideNoteList
 });
 
 export default connect(mapStateToProps)(Navbar);

@@ -10,6 +10,7 @@ import {
   UPDATE_NEW_NOTE_CONTENT,
   UPDATE_NEW_NOTE_TAGS,
   TOGGLE_MARKDOWN_VIEW,
+  HIDE_NOTE_LIST,
 } from '../actions';
 
 const initialState = {
@@ -31,10 +32,16 @@ const initialState = {
   },
   creatingNote: false,
   markdownView: false,
+  hideNoteList: false,
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+  case HIDE_NOTE_LIST:
+    return {
+      ...state,
+      hideNoteList: !state.hideNoteList,
+    };
   case TOGGLE_MARKDOWN_VIEW:
     return {
       ...state,

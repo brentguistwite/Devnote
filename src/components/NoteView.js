@@ -51,7 +51,9 @@ export function NoteView(props) {
         <form
           onSubmit={event => event.preventDefault()}
         >
-          <h1 className="note-title">
+          <h1 
+            className={props.hideNoteList ? 'fullscreen' : 'note-title'}
+          >
             {props.currentDraft.title}
           </h1>
           <textarea
@@ -61,7 +63,6 @@ export function NoteView(props) {
             onChange={event => props.dispatch(editNote(event.target.value))}
           />
         </form>
-        {/* <MarkdownRenderer markdown={props.currentDraft.content} /> */}
       </div>
     );
   } 

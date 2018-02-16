@@ -21,13 +21,15 @@ export class NoteList extends React.Component {
     });
     return (
       <div
-        className="notes-nav">
+        className={this.props.hideNoteList ? 'hidden' : 'notes-nav'}
+      >
         <ul className="notes-list">{notes}</ul>
       </div>
     );
   }
 }
 const mapStateToProps = state => ({
+  hideNoteList: state.hideNoteList,
   notes: state.notes,
 });
 export default connect(mapStateToProps)(NoteList);

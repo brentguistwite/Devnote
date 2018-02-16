@@ -173,6 +173,7 @@ input, textarea {
     width:90%;
     height: 800px;
 }
+
 textarea {
     border:0;
     color: white;
@@ -180,9 +181,27 @@ textarea {
     height: 88%;
     width: 100%;
 }
+
+.arrow-reversed {
+    transform: rotate(180deg);
+    width: 40px;
+}
+
+.hide-button {
+    width: 40px;
+}
+
+.note-title {
+    text-align: center;
+}
+
 form {
     height: 80%;
     display: block
+}
+
+.hidden {
+    display: none;
 }
 
 #root {
