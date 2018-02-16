@@ -1,28 +1,94 @@
-.App {
-  text-align: center;
+body {
+    font-family: 'Playfair Display', serif;
+    color:white;
+    overflow: hidden;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+input, textarea {
+    font-family: 'Playfair Display', serif;
+
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.note-title {
+    font-family: 'Playfair Display', serif;
+    font-weight:900;
+    text-transform: capitalize;
+
 }
 
-.App-title {
-  font-size: 1.5em;
+ .notes-list h1 {
+    font-family:'Playfair Display', serif;
+    text-transform: capitalize;
+    font-weight:900;
+    font-style: italic;
 }
 
-.App-intro {
-  font-size: large;
+.app-container {
+    display:flex;
+    overflow: hidden;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.notes-nav {
+    overflow-y: auto;
+    min-width: 100px;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    margin-right: 10px;
+
 }
+
+.notes-list {
+    height: 50em;
+    overflow: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.notes-list-item {
+    padding: 10px;
+    border-top: 1px solid #000;
+}
+
+.new-note-form {
+    
+    width:90%;
+    height: 800px;    
+}
+
+.title-container input {
+    border:0px;
+    color: white;
+    background-color: rgb(47, 47, 47);    
+}
+
+.note-container {
+    margin:0;
+    width:100%;
+    height: 800px;
+}
+
+.note-form {
+    overflow: hidden;
+    width:90%;
+    height: 800px;
+}
+textarea {
+    border:0;
+    color: white;
+    background-color: rgb(47, 47, 47);
+    height: 88%;
+    width: 100%;
+}
+form {
+    height: 80%;
+    display: block
+}
+
+#root {
+    background-color:rgb(47, 47, 47);
+}
+
+
+
+

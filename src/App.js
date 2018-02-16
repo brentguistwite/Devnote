@@ -1,15 +1,14 @@
 import React from 'react';
+import NoteList from './components/NoteList';
+import NoteView from './components/NoteView';
+
 import './App.css';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>
-          hello world
-        </h1>
-      </div>
-    );
-  }
+export default function App() {
+  return (
+    <div className ="app-container">
+      <NoteList />
+      <NoteView />
+    </div>
+  );
 }
-
