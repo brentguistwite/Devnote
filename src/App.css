@@ -16,11 +16,13 @@ input, textarea {
 }
 
 .search-notes {
+
     background-color:rgb(47, 47, 47);
     border-color: hsl(14, 100%, 56%);
 }
 
 .header {
+    border-bottom: 1px solid;
     margin-top: -46px;
     position:fixed;
     background-color: rgb(47, 47, 47);
@@ -192,7 +194,7 @@ input, textarea {
 
 .notes-list-item {
     padding: 10px;
-    border-top: 1px solid #000;
+    border-top: 1px solid ;
 }
 
 .new-note-form {
@@ -203,8 +205,8 @@ input, textarea {
 
 .title-container input {
     border:0px;
-    color: white;
-    background-color: rgb(47, 47, 47);    
+    background-color: rgb(47, 47, 47);
+    color:rgb(167, 167, 167);    
 }
 
 .note-container {
