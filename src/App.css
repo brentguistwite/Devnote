@@ -6,6 +6,11 @@ body {
     overflow: hidden;
 }
 
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
 span {
     color: #b0a698
 }
@@ -178,8 +183,8 @@ input, textarea {
     height:600px;
     overflow-y: auto;
     min-width: 100px;
-    border-right: 1px solid #000;
-    border-bottom: 1px solid #000;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
     margin-right: 10px;
 
 }
@@ -199,8 +204,8 @@ input, textarea {
 
 .new-note-form {
     
-    width:90%;
-    height: 800px;    
+    width:100%;
+    height: 1200px;    
 }
 
 .title-container input {
@@ -217,8 +222,8 @@ input, textarea {
 
 .note-form {
     overflow: hidden;
-    width:90%;
-    height: 800px;
+    width:100%;
+    height: 1200px;
 }
 
 textarea {
