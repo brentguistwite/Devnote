@@ -25,6 +25,7 @@ export function Navbar(props) {
           </li>
           <li>
             <input 
+              className="search-notes"
               onChange={(e) => console.log(e.target.value)} 
               type="text" 
               placeholder="Search notes"/>

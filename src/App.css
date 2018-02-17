@@ -2,17 +2,26 @@
 
 body {
     font-family: 'Playfair Display', serif;
-    color:white;
+    color:hsl(14, 100%, 56%);
     overflow: hidden;
+}
+
+span {
+    color: #b0a698
 }
 
 input, textarea {
     font-family: 'Playfair Display', serif;
-    outline: 0;
+    outline-color: rgb(167, 167, 167);
+}
+
+.search-notes {
+    background-color:rgb(47, 47, 47);
+    border-color: hsl(14, 100%, 56%);
 }
 
 .header {
-    margin-top: -40px;
+    margin-top: -46px;
     position:fixed;
     background-color: rgb(47, 47, 47);
     width: 100%;
@@ -160,10 +169,11 @@ input, textarea {
 .app-container {
     display:flex;
     overflow: hidden;
-    margin-top: 40px;
+    margin-top: 45px;
 }
 
 .notes-nav {
+    height:600px;
     overflow-y: auto;
     min-width: 100px;
     border-right: 1px solid #000;
@@ -211,7 +221,7 @@ input, textarea {
 
 textarea {
     border:0;
-    color: white;
+    color: #b0a698;
     background-color: rgb(47, 47, 47);
     height: 88%;
     width: 100%;
