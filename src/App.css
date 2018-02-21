@@ -180,7 +180,7 @@ input, textarea {
 }
 
 .notes-nav {
-    height:600px;
+    height: 1200px;
     overflow-y: auto;
     min-width: 100px;
     border-right: 1px solid;
