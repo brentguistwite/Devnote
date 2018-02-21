@@ -94,6 +94,7 @@ export const postNote = (note) => (dispatch) => {
 
 export const fetchNotes = () => (dispatch) => {
   dispatch(fetchNotesRequest());
+  console.log(apiUrl);
   return fetch(`${apiUrl}/notes`)
     .then((res) => {
       if (!res.ok) {
