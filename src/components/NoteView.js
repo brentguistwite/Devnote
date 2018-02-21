@@ -16,7 +16,7 @@ export function NoteView(props) {
           onSubmit={event => event.preventDefault()}
         >
           <div className="title-container">
-            <label htmlFor="title">Title</label>
+            <label htmlFor="title">Title:</label>
             <input 
               autoComplete="false"
               id="title" 
@@ -25,7 +25,7 @@ export function NoteView(props) {
             />
           </div>
           <div className="note-container">  
-            <label htmlFor="note-field">Notes</label>
+            <label htmlFor="note-field">Notes:</label>
             <textarea 
               autoComplete="false"
               id="note-field"
@@ -39,7 +39,7 @@ export function NoteView(props) {
         </form>  
       </div>
     );
-  } else if (props.markdownView) {
+  } if (props.markdownView) {
     return (
       <div className="note-form">
         <FormattedNote />

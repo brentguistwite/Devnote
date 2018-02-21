@@ -2,17 +2,33 @@
 
 body {
     font-family: 'Playfair Display', serif;
-    color:white;
+    color:hsl(14, 100%, 56%);
     overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+span {
+    color: #b0a698
 }
 
 input, textarea {
     font-family: 'Playfair Display', serif;
-    outline: 0;
+    outline-color: rgb(167, 167, 167);
+}
+
+.search-notes {
+
+    background-color:rgb(47, 47, 47);
+    border-color: hsl(14, 100%, 56%);
 }
 
 .header {
-    margin-top: -40px;
+    border-bottom: 1px solid;
+    margin-top: -46px;
     position:fixed;
     background-color: rgb(47, 47, 47);
     width: 100%;
@@ -160,14 +176,15 @@ input, textarea {
 .app-container {
     display:flex;
     overflow: hidden;
-    margin-top: 40px;
+    margin-top: 45px;
 }
 
 .notes-nav {
+    height: 1200px;
     overflow-y: auto;
     min-width: 100px;
-    border-right: 1px solid #000;
-    border-bottom: 1px solid #000;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
     margin-right: 10px;
 
 }
@@ -182,19 +199,19 @@ input, textarea {
 
 .notes-list-item {
     padding: 10px;
-    border-top: 1px solid #000;
+    border-top: 1px solid ;
 }
 
 .new-note-form {
     
-    width:90%;
-    height: 800px;    
+    width:100%;
+    height: 1200px;    
 }
 
 .title-container input {
     border:0px;
-    color: white;
-    background-color: rgb(47, 47, 47);    
+    background-color: rgb(47, 47, 47);
+    color:rgb(167, 167, 167);    
 }
 
 .note-container {
@@ -205,13 +222,13 @@ input, textarea {
 
 .note-form {
     overflow: hidden;
-    width:90%;
-    height: 800px;
+    width:100%;
+    height: 1200px;
 }
 
 textarea {
     border:0;
-    color: white;
+    color: #b0a698;
     background-color: rgb(47, 47, 47);
     height: 88%;
     width: 100%;
