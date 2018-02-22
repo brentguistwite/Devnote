@@ -68,6 +68,7 @@ export function NoteView(props) {
   } 
 }
 const mapStateToProps = state => ({
+  sortedBy: state.sortedBy,
   currentDraft: state.currentDraft,
   creatingNote: state.creatingNote,
   newNote: state.newNote,

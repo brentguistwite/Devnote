@@ -6,12 +6,26 @@ export class NoteList extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchNotes());
   }
+
+  filterNotes(query) {
+    if (query === '') {
+      return this.props.notes;
+    } else {
+      const filtered = this.props.notes.filter((note) => {
+        if (note.content.includes(query)) {
+          return note;
+        }
+      });
+      return filtered;
+    }
+  }
   handleClick(e) {
     const { note } = e.currentTarget.dataset;
     this.props.dispatch(changeNoteView(JSON.parse(note)));
   }
   render() {
-    const notes = this.props.notes.map((note, index) => {
+    const filteredNotes = this.filterNotes(this.props.sortedBy);
+    const notes = filteredNotes.map((note, index) => {
       const noteData = JSON.stringify(note);
       return (
         <li onClick={this.handleClick.bind(this)} data-note={noteData} className="notes-list-item" key={index}>
@@ -29,6 +43,7 @@ export class NoteList extends React.Component {
   }
 }
 const mapStateToProps = state => ({
+  sortedBy: state.sortedBy,
   hideNoteList: state.hideNoteList,
   notes: state.notes,
 });

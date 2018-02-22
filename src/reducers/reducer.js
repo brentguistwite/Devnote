@@ -11,6 +11,7 @@ import {
   UPDATE_NEW_NOTE_TAGS,
   TOGGLE_MARKDOWN_VIEW,
   HIDE_NOTE_LIST,
+  UPDATE_SEARCH,
 } from '../actions';
 
 const initialState = {
@@ -37,6 +38,11 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+  case UPDATE_SEARCH:
+    return{
+      ...state,
+      sortedBy: action.searchParams,
+    };
   case HIDE_NOTE_LIST:
     return {
       ...state,

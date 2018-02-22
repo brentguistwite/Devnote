@@ -1,5 +1,11 @@
 import API_URL from '../config';
 
+export const UPDATE_SEARCH = 'UPDATE_SEARCH';
+export const updateSearch = searchParams => ({
+  type: UPDATE_SEARCH,
+  searchParams,
+});
+
 export const EDIT_NOTE = 'EDIT_NOTE';
 export const editNote = newDraft => ({
   type: EDIT_NOTE,
