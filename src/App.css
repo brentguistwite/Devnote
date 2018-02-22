@@ -180,7 +180,7 @@ input, textarea {
 }
 
 .notes-nav {
-    height: 1200px;
+    height: 100%;
     overflow-y: auto;
     min-width: 100px;
     border-right: 1px solid;
@@ -203,9 +203,8 @@ input, textarea {
 }
 
 .new-note-form {
-    
     width:100%;
-    height: 1200px;    
+    /* height: 100%;     */
 }
 
 .title-container input {
@@ -223,15 +222,18 @@ input, textarea {
 .note-form {
     overflow: hidden;
     width:100%;
-    height: 1200px;
+    /* height: 100%; */
 }
 
 textarea {
+    font-size: 30px;
     border:0;
     color: #b0a698;
     background-color: rgb(47, 47, 47);
     height: 88%;
     width: 100%;
+    resize: none;
+
 }
 
 .arrow-reversed {
@@ -248,7 +250,7 @@ textarea {
 }
 
 form {
-    height: 80%;
+    height: 100%;
     display: block
 }
 
