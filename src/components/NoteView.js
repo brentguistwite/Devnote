@@ -41,7 +41,7 @@ export function NoteView(props) {
     );
   } if (props.markdownView) {
     return (
-      <div className="note-form">
+      <div className="note-form markdown">
         <FormattedNote />
       </div>  
     );
@@ -58,7 +58,6 @@ export function NoteView(props) {
           </h1>
           <textarea
             autoComplete="false"
-            data={props.currentDraft}
             value={props.currentDraft.content}
             onChange={event => props.dispatch(editNote(event.target.value))}
           />
