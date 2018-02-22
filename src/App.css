@@ -221,6 +221,7 @@ input, textarea {
 }
 
 .note-form {
+    font-size: 30px;
     overflow: hidden;
     width:100%;
     /* height: 100%; */
