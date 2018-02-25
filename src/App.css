@@ -229,6 +229,10 @@ input, textarea {
     /* height: 100%; */
 }
 
+.content {
+    
+}
+
 textarea {
     font-size: 30px;
     border:0;
