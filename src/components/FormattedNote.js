@@ -7,23 +7,35 @@ import Remarkable from 'remarkable';
 
 export function FormattedNote(props) {
   const md = new Remarkable('full', {
-    html: true,
-    linkify: true,
+    html: true,        // Enable HTML tags in source
+    xhtmlOut: true,        // Use '/' to close single tags (<br />)
+    breaks: true,        // Convert '\n' in paragraphs into <br>
+    langPrefix: 'language-',  // CSS language prefix for fenced blocks
+    linkify: true,         // autoconvert URL-like texts to links
+    linkTarget: '',           // set target to open link in
+
+    // Enable some language-neutral replacements + quotes beautification
     typographer: true,
-    xhtmlOut: true,
+
+    // Double + single quotes replacement pairs, when typographer enabled,
+    // and smartquotes on. Set doubles to '«»' for Russian, '„“' for German.
+    quotes: '“”‘’',
+
+    // Highlighter function. Should return escaped HTML,
+    // or '' if input not changed
     highlight: function (str, lang) {
       if (lang && hljs.getLanguage(lang)) {
         try {
           return hljs.highlight(lang, str).value;
         } catch (err) {
-          console.log('first block', err);
+          alert(err);
         }
       }
 
       try {
         return hljs.highlightAuto(str).value;
-      } catch (err) {
-        console.log('second block', err);
+      } catch (err) { 
+        alert(err);
       }
 
       return ''; // use external default escaping

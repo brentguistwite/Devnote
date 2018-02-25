@@ -212,7 +212,7 @@ input, textarea {
 }
 
 .notes-list {
-    overflow: auto;
+    overflow: hidden;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -241,12 +241,15 @@ input, textarea {
 }
 
 .note-form {
+    display: inline-block;
     font-size: 30px;
-    overflow: hidden;
+    overflow: auto;
     width:100%;
 }
 
 .content {
+    font-size: 30px;
+    padding: 0px 240px;
     overflow: auto;
     color: rgb(255, 200, 183);
     white-space: pre-wrap;
@@ -254,6 +257,7 @@ input, textarea {
 }
 
 textarea {
+    padding: 0px 240px;
     font-size: 30px;
     border:0;
     color: rgb(255, 200, 183);
@@ -280,12 +284,12 @@ textarea {
 }
 
 .note-title {
+    margin: 0;
     text-align: center;
 }
 
 form {
     height: 100%;
-    display: block
 }
 
 .hidden {
