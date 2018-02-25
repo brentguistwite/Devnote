@@ -4,8 +4,7 @@ import FormattedNote from './FormattedNote';
 import { 
   editNote,
   updateNewNoteTitle,
-  updateNewNoteContent,
-  updateNewNoteTags, 
+  updateNewNoteContent, 
 } from '../actions';
 
 export function NoteView(props) {
@@ -17,7 +16,7 @@ export function NoteView(props) {
         >
           <div className="title-container">
             <label htmlFor="title">Title:</label>
-            <input 
+            <input
               autoComplete="false"
               id="title" 
               type="text" 
@@ -31,10 +30,6 @@ export function NoteView(props) {
               id="note-field"
               onChange={event => props.dispatch(updateNewNoteContent(event.target.value))}
             />
-          </div>
-          <div className="tag-container">
-            <label htmlFor="tag">Tags</label>
-            <input id="tags" type="text" />
           </div>
         </form>  
       </div>

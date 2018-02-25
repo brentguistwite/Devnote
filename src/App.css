@@ -20,9 +20,8 @@ body {
     overflow: hidden;
 }
 
-::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
+::-webkit-scrollbar, -moz-scrollbar {
+    display: none;
 }
 
 span {
@@ -30,6 +29,7 @@ span {
 }
 
 input, textarea {
+    font-size: 30px;
     font-family: 'Playfair Display', serif;
     outline-color: rgb(255, 200, 183);
 }
@@ -225,8 +225,12 @@ input, textarea {
 }
 
 .new-note-form {
+    display: inline-block;
+    font-size: 30px;
+    overflow: auto;
     width:100%;
 }
+
 
 .title-container input {
     border:0px;
@@ -257,9 +261,8 @@ input, textarea {
 }
 
 textarea {
-    padding: 0px 240px;
-    font-size: 30px;
-    border:0;
+    padding: 0px 100px;
+    border: 0;
     color: rgb(255, 200, 183);
     background-color: rgb(47, 47, 47);
     min-height: 80%;
@@ -301,9 +304,6 @@ form {
     background-color:rgb(47, 47, 47);
 }
 
-.notes-nav, .new-note-form, .note-form {
-    margin-top: 50px;
-}
 
 .hljs {
     display:block;
