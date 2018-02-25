@@ -6,6 +6,7 @@ export const updateSearch = searchParams => ({
   searchParams,
 });
 
+
 export const EDIT_NOTE = 'EDIT_NOTE';
 export const editNote = newDraft => ({
   type: EDIT_NOTE,
@@ -74,6 +75,10 @@ export const updateNewNoteTags = tags => ({
   tags,
 });
 
+export const DELETE_NOTE_SUCCESS = 'DELETE_NOTE_SUCCESS';
+export const deleteNoteSuccess = () => ({
+  type: DELETE_NOTE_SUCCESS,
+});
 
 export const postNote = (note) => (dispatch) => {
   dispatch(fetchNotesRequest());
@@ -125,6 +130,22 @@ export const updateNoteInDb = (note) => (dispatch) => {
     }
   })
     .then(() => dispatch(fetchNotes()))
+    .catch((err) => {
+      dispatch(fetchNotesError(err));
+    });
+};
+
+export const deleteNote = (note) => (dispatch) => {
+  dispatch(fetchNotesRequest());
+  return fetch(`${API_URL}/notes/${note.id}`, {
+    method: 'DELETE',
+    body: JSON.stringify(note),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(() => dispatch(fetchNotes()))
+    .then(() => dispatch(deleteNoteSuccess()))
     .catch((err) => {
       dispatch(fetchNotesError(err));
     });

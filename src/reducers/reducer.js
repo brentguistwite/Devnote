@@ -12,12 +12,16 @@ import {
   TOGGLE_MARKDOWN_VIEW,
   HIDE_NOTE_LIST,
   UPDATE_SEARCH,
+  DELETE_NOTE_SUCCESS
 } from '../actions';
 
 const initialState = {
   loading: false,
   error: null,
   saved: false,
+  creatingNote: false,
+  markdownView: false,
+  hideNoteList: false,
   notes: [''],
   sortedBy: '',
   newNote: {
@@ -31,13 +35,15 @@ const initialState = {
     tags: [''],
     id: null,
   },
-  creatingNote: false,
-  markdownView: false,
-  hideNoteList: false,
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+  case DELETE_NOTE_SUCCESS:
+    return {
+      ...state,
+      currentDraft: state.notes[0]
+    };
   case UPDATE_SEARCH:
     return{
       ...state,

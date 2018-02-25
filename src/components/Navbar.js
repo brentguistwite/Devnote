@@ -5,10 +5,12 @@ import { addNote,
   postNote, 
   toggleMarkdownView, 
   hideNoteList,
-  updateSearch, 
+  updateSearch,
+  deleteNote, 
 } from './../actions';
 import newNote from './../images/newNote.png';
 import save from './../images/save.png';
+import deleteButton from './../images/delete.png';
 import hideList from './../images/hideList.png';
 
 export function Navbar(props) {
@@ -16,14 +18,6 @@ export function Navbar(props) {
     <header className="header">
       <nav className="header-nav">
         <ul>
-          <li className="tooltip">
-            <span className="tooltiptext">New Note</span>
-            <img 
-              className="new-note-button" 
-              src={newNote} 
-              onClick={() => props.dispatch(addNote())}
-            />
-          </li>
           <li>
             <input 
               className="search-notes"
@@ -35,8 +29,8 @@ export function Navbar(props) {
               type="text" 
               placeholder="Search notes"/>
           </li>
-          <li className="tooltip3">
-            <span className="tooltiptext3">Hide or Show Notes</span>
+          <li className="tooltip2">
+            <span className="tooltiptext2">Hide or Show Notes</span>
             <img
               className={props.hideNoteList ? 'hide-button' : 'arrow-reversed'}
               src={hideList} 
@@ -66,6 +60,14 @@ export function Navbar(props) {
             />
           </li>
           <li className="tooltip2">
+            <span className="tooltiptext2">New Note</span>
+            <img
+              className="new-note-button"
+              src={newNote}
+              onClick={() => props.dispatch(addNote())}
+            />
+          </li>
+          <li className="tooltip2">
             <span className="tooltiptext2">Save</span>
             <img 
               className="save-note-button" 
@@ -76,6 +78,14 @@ export function Navbar(props) {
                   : props.dispatch(updateNoteInDb(props.currentDraft));
               }
               } 
+            />
+          </li>
+          <li className="tooltip2">
+            <span className="tooltiptext2">Delete</span>
+            <img
+              className="new-note-button"
+              src={deleteButton}
+              onClick={() => props.dispatch(deleteNote(props.currentDraft))}
             />
           </li>
         </ul>
