@@ -4,8 +4,7 @@ import FormattedNote from './FormattedNote';
 import { 
   editNote,
   updateNewNoteTitle,
-  updateNewNoteContent,
-  updateNewNoteTags, 
+  updateNewNoteContent, 
 } from '../actions';
 
 export function NoteView(props) {
@@ -17,7 +16,7 @@ export function NoteView(props) {
         >
           <div className="title-container">
             <label htmlFor="title">Title:</label>
-            <input 
+            <input
               autoComplete="false"
               id="title" 
               type="text" 
@@ -26,22 +25,25 @@ export function NoteView(props) {
           </div>
           <div className="note-container">  
             <label htmlFor="note-field">Notes:</label>
-            <textarea 
+            <textarea
+              onKeyDown={(event) => { 
+                if (event.keyCode === 9) {
+                  event.preventDefault();
+                  event.target.value += '    ';
+                }
+              }
+              }
               autoComplete="false"
               id="note-field"
               onChange={event => props.dispatch(updateNewNoteContent(event.target.value))}
             />
-          </div>
-          <div className="tag-container">
-            <label htmlFor="tag">Tags</label>
-            <input id="tags" type="text" />
           </div>
         </form>  
       </div>
     );
   } if (props.markdownView) {
     return (
-      <div className="note-form">
+      <div className="note-form markdown">
         <FormattedNote />
       </div>  
     );
@@ -57,8 +59,14 @@ export function NoteView(props) {
             {props.currentDraft.title}
           </h1>
           <textarea
+            onKeyDown={(event) => {
+              if (event.keyCode === 9) {
+                event.preventDefault();
+                event.target.value += '    ';
+              }
+            }
+            }
             autoComplete="false"
-            data={props.currentDraft}
             value={props.currentDraft.content}
             onChange={event => props.dispatch(editNote(event.target.value))}
           />
@@ -68,6 +76,7 @@ export function NoteView(props) {
   } 
 }
 const mapStateToProps = state => ({
+  sortedBy: state.sortedBy,
   currentDraft: state.currentDraft,
   creatingNote: state.creatingNote,
   newNote: state.newNote,

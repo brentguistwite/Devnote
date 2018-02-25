@@ -1,4 +1,10 @@
-import apiUrl from '../config';
+import API_URL from '../config';
+
+export const UPDATE_SEARCH = 'UPDATE_SEARCH';
+export const updateSearch = searchParams => ({
+  type: UPDATE_SEARCH,
+  searchParams,
+});
 
 export const EDIT_NOTE = 'EDIT_NOTE';
 export const editNote = newDraft => ({
@@ -71,7 +77,7 @@ export const updateNewNoteTags = tags => ({
 
 export const postNote = (note) => (dispatch) => {
   dispatch(fetchNotesRequest());
-  return fetch(`${apiUrl}/notes`, {
+  return fetch(`${API_URL}/notes`, {
     method: 'POST',
     body: JSON.stringify(note),
     headers: {
@@ -94,8 +100,7 @@ export const postNote = (note) => (dispatch) => {
 
 export const fetchNotes = () => (dispatch) => {
   dispatch(fetchNotesRequest());
-  console.log(apiUrl);
-  return fetch(`${apiUrl}/notes`)
+  return fetch(`${API_URL}/notes`)
     .then((res) => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
@@ -112,7 +117,7 @@ export const fetchNotes = () => (dispatch) => {
 
 export const updateNoteInDb = (note) => (dispatch) => {
   dispatch(fetchNotesRequest());
-  return fetch(`${apiUrl}/notes/${note.id}`, {
+  return fetch(`${API_URL}/notes/${note.id}`, {
     method: 'PUT',
     body: JSON.stringify(note),
     headers: {

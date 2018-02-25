@@ -1,33 +1,48 @@
-/* HSL 14, 100, 56 */
+html, body, #root, .app-container {
+    height:100%;
+}
+
+code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.default-theme {
+    color:#ff7750;
+    color: #FFB49E;
+    color: #ffbca7;
+    color:rgb(47, 47, 47);
+}
 
 body {
     font-family: 'Playfair Display', serif;
-    color:hsl(14, 100%, 56%);
+    color:#ff7750;
     overflow: hidden;
 }
 
-::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
+::-webkit-scrollbar, -moz-scrollbar {
+    display: none;
 }
 
 span {
-    color: #b0a698
+    color: #FFB49E;
 }
 
 input, textarea {
+    font-size: 30px;
     font-family: 'Playfair Display', serif;
-    outline-color: rgb(167, 167, 167);
+    outline-color: rgb(255, 200, 183);
 }
 
 .search-notes {
-
+    color: rgb(255, 200, 183);
+    font-size: 20px;
     background-color:rgb(47, 47, 47);
-    border-color: hsl(14, 100%, 56%);
+    border-color: #ffbca7;
 }
 
 .header {
-    border-bottom: 1px solid;
+    border-bottom: 2px solid #ED5428;
     margin-top: -46px;
     position:fixed;
     background-color: rgb(47, 47, 47);
@@ -39,7 +54,13 @@ input, textarea {
     width: 100%;
 }
 
+.header-nav span {
+    color: #ff7750;
+}
+
 .header-nav ul {
+    color: #FFB49E;
+    font-size: 25px;
     width:100%;
     display:flex;
     align-items: center;
@@ -180,38 +201,41 @@ input, textarea {
 }
 
 .notes-nav {
-    height: 1200px;
+    height: 100%;
     overflow-y: auto;
     min-width: 100px;
-    border-right: 1px solid;
-    border-bottom: 1px solid;
+    border-right: 2px solid #ff5722;
+    border-bottom: 2px solid #ff5722;
     margin-right: 10px;
+    margin-top: 0;
 
 }
 
 .notes-list {
-    height: 50em;
-    overflow: auto;
+    overflow: hidden;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
 .notes-list-item {
+    overflow-wrap: break-word;
     padding: 10px;
-    border-top: 1px solid ;
+    border-bottom: 2px solid #ff5722;
 }
 
 .new-note-form {
-    
+    display: inline-block;
+    font-size: 30px;
+    overflow: auto;
     width:100%;
-    height: 1200px;    
 }
+
 
 .title-container input {
     border:0px;
     background-color: rgb(47, 47, 47);
-    color:rgb(167, 167, 167);    
+    color:rgb(255, 200, 183);    
 }
 
 .note-container {
@@ -221,17 +245,31 @@ input, textarea {
 }
 
 .note-form {
-    overflow: hidden;
+    display: inline-block;
+    font-size: 30px;
+    overflow: auto;
     width:100%;
-    height: 1200px;
+}
+
+.content {
+    font-size: 30px;
+    padding: 0px 240px;
+    overflow: auto;
+    color: rgb(255, 200, 183);
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 textarea {
-    border:0;
-    color: #b0a698;
+    padding: 0px 100px;
+    border: 0;
+    color: rgb(255, 200, 183);
     background-color: rgb(47, 47, 47);
-    height: 88%;
+    min-height: 80%;
+    max-height: 80%;
     width: 100%;
+    resize: none;
+
 }
 
 .arrow-reversed {
@@ -243,13 +281,18 @@ textarea {
     width: 40px;
 }
 
+::placeholder { 
+    color: rgb(255, 200, 183);
+    opacity: 1;
+}
+
 .note-title {
+    margin: 0;
     text-align: center;
 }
 
 form {
-    height: 80%;
-    display: block
+    height: 100%;
 }
 
 .hidden {
@@ -257,5 +300,79 @@ form {
 }
 
 #root {
+    height: 100%;
     background-color:rgb(47, 47, 47);
+}
+
+
+.hljs {
+    display:block;
+    word-wrap: break-word;
+    padding:0.5em;
+    -webkit-text-size-adjust:none;
+}
+
+.hljs-comment,.diff .hljs-header,.hljs-doctype,.hljs-pi,.lisp .hljs-string,.hljs-javadoc {
+    color:#5BCA8F;
+}
+
+.hljs-keyword,.hljs-winutils,.method,.hljs-addition,.css .hljs-tag,.hljs-request,.hljs-status,.nginx .hljs-title {
+    color:#097768;
+}
+
+.hljs-number {
+    color: #FFC69E;
+}
+
+.hljs-built_in {
+    color: #0A8644;
+}
+
+.hljs-params {
+    color:#54BBAD;
+}
+
+.hljs-command,.hljs-string,.hljs-tag .hljs-value,.hljs-rules .hljs-value,.hljs-phpdoc,.hljs-dartdoc,.tex .hljs-formula,.hljs-regexp,.hljs-hexcolor,.hljs-link_url {
+    color: #BE570E;
+}
+
+.hljs-title,.hljs-localvars,.hljs-chunk,.hljs-decorator,.hljs-identifier,.vhdl .hljs-literal,.hljs-id,.css .hljs-function {
+    color:#FF9950;
+}
+
+
+
+.hljs-attribute,.hljs-variable,.lisp .hljs-body,.smalltalk .hljs-number,.hljs-constant,.hljs-class .hljs-title,.hljs-parent,.hljs-type,.hljs-link_reference {
+    color:#b58900;
+}
+
+.hljs-preprocessor,.hljs-preprocessor .hljs-keyword,.hljs-pragma,.hljs-shebang,.hljs-symbol,.hljs-symbol .hljs-string,.diff .hljs-change,.hljs-special,.hljs-attr_selector,.hljs-subst,.hljs-cdata,.css .hljs-pseudo,.hljs-header {
+    color:#ED7A28;
+}
+
+.hljs-deletion,.hljs-important {
+    color:#dc322f;
+}
+
+.hljs-link_label {
+    color:#097768;
+}
+
+.tex .hljs-formula {
+    background:#7c5f00;
+}
+
+.default-theme {
+    color:rgb(47, 47, 47);
+    color:#097768;
+    color:#5BCA8F;
+    color: #0A8644;
+    color: #54BBAD;
+    color: #BE570E;
+    color: #ff5722;
+    color:#FF9950;
+    color:#ff7750;
+    color: #FFC69E;
+    color: #FFB49E;
+    color: #ffbca7;
 }

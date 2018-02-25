@@ -4,7 +4,8 @@ import { addNote,
   updateNoteInDb, 
   postNote, 
   toggleMarkdownView, 
-  hideNoteList 
+  hideNoteList,
+  updateSearch, 
 } from './../actions';
 import newNote from './../images/newNote.png';
 import save from './../images/save.png';
@@ -26,7 +27,11 @@ export function Navbar(props) {
           <li>
             <input 
               className="search-notes"
-              onChange={(e) => console.log(e.target.value)} 
+              onChange={
+                (e) => {
+                  props.dispatch(updateSearch(e.currentTarget.value));
+                }
+              } 
               type="text" 
               placeholder="Search notes"/>
           </li>
@@ -51,7 +56,6 @@ export function Navbar(props) {
             <label htmlFor="recent">Recent</label>
             <input
               name="sorted-by"
-              checked
               type="radio" 
               id="recent"/>
             <label htmlFor="alphabetic">Alphabetic</label>
