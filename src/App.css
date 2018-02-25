@@ -10,7 +10,7 @@ code {
 
 body {
     font-family: 'Playfair Display', serif;
-    color:hsl(14, 100%, 56%);
+    color:#ff7750;
     overflow: hidden;
 }
 
@@ -20,7 +20,7 @@ body {
 }
 
 span {
-    color: #b0a698
+    color: #FFB49E;
 }
 
 input, textarea {
@@ -29,13 +29,14 @@ input, textarea {
 }
 
 .search-notes {
-
+    font-size: 20px;
+    font-weight: bold;
     background-color:rgb(47, 47, 47);
-    border-color: rgb(167, 167, 167);
+    border-color: #ffbca7;
 }
 
 .header {
-    border-bottom: 1px solid;
+    border-bottom: 2px solid #ED5428;
     margin-top: -46px;
     position:fixed;
     background-color: rgb(47, 47, 47);
@@ -47,7 +48,13 @@ input, textarea {
     width: 100%;
 }
 
+.header-nav span {
+    color: #ff7750;
+}
+
 .header-nav ul {
+    color: #FFB49E;
+    font-size: 25px;
     width:100%;
     display:flex;
     align-items: center;
@@ -191,8 +198,8 @@ input, textarea {
     height: 100%;
     overflow-y: auto;
     min-width: 100px;
-    border-right: 1px solid rgb(167, 167, 167);
-    border-bottom: 1px solid rgb(167, 167, 167);
+    border-right: 2px solid #ff5722;
+    border-bottom: 2px solid #ff5722;
     margin-right: 10px;
     margin-top: 0;
 
@@ -208,7 +215,7 @@ input, textarea {
 .notes-list-item {
     overflow-wrap: break-word;
     padding: 10px;
-    border-bottom: 1px solid rgb(167, 167, 167);
+    border-bottom: 2px solid #ff5722;
 }
 
 .new-note-form {
@@ -234,6 +241,7 @@ input, textarea {
 }
 
 .content {
+    color: #ffddd3;
     white-space: pre-wrap;
     word-wrap: break-word;
 }
@@ -241,7 +249,7 @@ input, textarea {
 textarea {
     font-size: 30px;
     border:0;
-    color: #b0a698;
+    color: #ffddd3;
     background-color: rgb(47, 47, 47);
     min-height: 80%;
     max-height: 80%;
@@ -285,17 +293,15 @@ form {
     display:block;
     word-wrap: break-word;
     padding:0.5em;
-    background:#fdf6e3;
-    color:#657b83;
     -webkit-text-size-adjust:none;
 }
 
 .hljs-comment,.diff .hljs-header,.hljs-doctype,.hljs-pi,.lisp .hljs-string,.hljs-javadoc {
-    color:#93a1a1;
+    color:#39BE7A;
 }
 
 .hljs-keyword,.hljs-winutils,.method,.hljs-addition,.css .hljs-tag,.hljs-request,.hljs-status,.nginx .hljs-title {
-    color:#006695;
+    color:#1E71A2;
 }
 
 .hljs-number {
@@ -306,8 +312,12 @@ form {
     color: green;
 }
 
+.hljs-params {
+    color:#61A0C6;
+}
+
 .hljs-command,.hljs-string,.hljs-tag .hljs-value,.hljs-rules .hljs-value,.hljs-phpdoc,.hljs-dartdoc,.tex .hljs-formula,.hljs-regexp,.hljs-hexcolor,.hljs-link_url {
-    color:#b95c3f;
+    color:#ae2900;
 }
 
 .hljs-title,.hljs-localvars,.hljs-chunk,.hljs-decorator,.hljs-identifier,.vhdl .hljs-literal,.hljs-id,.css .hljs-function {
