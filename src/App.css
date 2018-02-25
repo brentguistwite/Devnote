@@ -3,6 +3,11 @@ html, body, #root, .app-container {
     height:100%;
 }
 
+code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
 body {
     font-family: 'Playfair Display', serif;
     color:hsl(14, 100%, 56%);
@@ -26,7 +31,7 @@ input, textarea {
 .search-notes {
 
     background-color:rgb(47, 47, 47);
-    border-color: hsl(14, 100%, 56%);
+    border-color: rgb(167, 167, 167);
 }
 
 .header {
@@ -186,8 +191,8 @@ input, textarea {
     height: 100%;
     overflow-y: auto;
     min-width: 100px;
-    border-right: 1px solid;
-    border-bottom: 1px solid;
+    border-right: 1px solid rgb(167, 167, 167);
+    border-bottom: 1px solid rgb(167, 167, 167);
     margin-right: 10px;
     margin-top: 0;
 
@@ -203,7 +208,7 @@ input, textarea {
 .notes-list-item {
     overflow-wrap: break-word;
     padding: 10px;
-    border-top: 1px solid ;
+    border-bottom: 1px solid rgb(167, 167, 167);
 }
 
 .new-note-form {
@@ -226,11 +231,11 @@ input, textarea {
     font-size: 30px;
     overflow: hidden;
     width:100%;
-    /* height: 100%; */
 }
 
 .content {
-    
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 textarea {
@@ -274,4 +279,57 @@ form {
 
 .notes-nav, .new-note-form, .note-form {
     margin-top: 50px;
+}
+
+.hljs {
+    display:block;
+    word-wrap: break-word;
+    padding:0.5em;
+    background:#fdf6e3;
+    color:#657b83;
+    -webkit-text-size-adjust:none;
+}
+
+.hljs-comment,.diff .hljs-header,.hljs-doctype,.hljs-pi,.lisp .hljs-string,.hljs-javadoc {
+    color:#93a1a1;
+}
+
+.hljs-keyword,.hljs-winutils,.method,.hljs-addition,.css .hljs-tag,.hljs-request,.hljs-status,.nginx .hljs-title {
+    color:#006695;
+}
+
+.hljs-number {
+    color: rgb(74, 143, 111);
+}
+
+.hljs-built_in {
+    color: green;
+}
+
+.hljs-command,.hljs-string,.hljs-tag .hljs-value,.hljs-rules .hljs-value,.hljs-phpdoc,.hljs-dartdoc,.tex .hljs-formula,.hljs-regexp,.hljs-hexcolor,.hljs-link_url {
+    color:#b95c3f;
+}
+
+.hljs-title,.hljs-localvars,.hljs-chunk,.hljs-decorator,.hljs-identifier,.vhdl .hljs-literal,.hljs-id,.css .hljs-function {
+    color:#268bd2;
+}
+
+.hljs-attribute,.hljs-variable,.lisp .hljs-body,.smalltalk .hljs-number,.hljs-constant,.hljs-class .hljs-title,.hljs-parent,.hljs-type,.hljs-link_reference {
+    color:#b58900;
+}
+
+.hljs-preprocessor,.hljs-preprocessor .hljs-keyword,.hljs-pragma,.hljs-shebang,.hljs-symbol,.hljs-symbol .hljs-string,.diff .hljs-change,.hljs-special,.hljs-attr_selector,.hljs-subst,.hljs-cdata,.css .hljs-pseudo,.hljs-header {
+    color:#cb4b16;
+}
+
+.hljs-deletion,.hljs-important {
+    color:#dc322f;
+}
+
+.hljs-link_label {
+    color:#6c71c4;
+}
+
+.tex .hljs-formula {
+    background:#eee8d5;
 }
