@@ -56,7 +56,6 @@ export function Navbar(props) {
             <label htmlFor="recent">Recent</label>
             <input
               name="sorted-by"
-              checked
               type="radio" 
               id="recent"/>
             <label htmlFor="alphabetic">Alphabetic</label>
