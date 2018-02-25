@@ -25,7 +25,14 @@ export function NoteView(props) {
           </div>
           <div className="note-container">  
             <label htmlFor="note-field">Notes:</label>
-            <textarea 
+            <textarea
+              onKeyDown={(event) => { 
+                if (event.keyCode === 9) {
+                  event.preventDefault();
+                  event.target.value += '    ';
+                }
+              }
+              }
               autoComplete="false"
               id="note-field"
               onChange={event => props.dispatch(updateNewNoteContent(event.target.value))}
@@ -52,6 +59,13 @@ export function NoteView(props) {
             {props.currentDraft.title}
           </h1>
           <textarea
+            onKeyDown={(event) => {
+              if (event.keyCode === 9) {
+                event.preventDefault();
+                event.target.value += '    ';
+              }
+            }
+            }
             autoComplete="false"
             value={props.currentDraft.content}
             onChange={event => props.dispatch(editNote(event.target.value))}
