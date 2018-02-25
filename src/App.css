@@ -35,8 +35,8 @@ input, textarea {
 }
 
 .search-notes {
+    color: rgb(255, 200, 183);
     font-size: 20px;
-    font-weight: bold;
     background-color:rgb(47, 47, 47);
     border-color: #ffbca7;
 }
@@ -272,6 +272,11 @@ textarea {
 
 .hide-button {
     width: 40px;
+}
+
+::placeholder { 
+    color: rgb(255, 200, 183);
+    opacity: 1;
 }
 
 .note-title {
