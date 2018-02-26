@@ -304,6 +304,11 @@ form {
     background-color:rgb(47, 47, 47);
 }
 
+mark {
+    color: rgb(47, 47, 47);
+    background-color: #5BCA8F;
+}
+
 
 .hljs {
     display:block;
