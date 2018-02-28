@@ -29,7 +29,7 @@ span {
 }
 
 input, textarea {
-    font-size: 30px;
+    font-size: 20px;
     font-family: 'Playfair Display', serif;
     outline-color: rgb(255, 200, 183);
 }
@@ -226,7 +226,7 @@ input, textarea {
 
 .new-note-form {
     display: inline-block;
-    font-size: 30px;
+    font-size: 20px;
     overflow: auto;
     width:100%;
 }
@@ -246,13 +246,14 @@ input, textarea {
 
 .note-form {
     display: inline-block;
-    font-size: 30px;
+    font-size: 20px;
     overflow: auto;
     width:100%;
 }
 
 .content {
-    font-size: 30px;
+    height: 100%;
+    font-size: 20px;
     padding: 0px 100px;
     overflow: auto;
     color: rgb(255, 200, 183);
@@ -302,6 +303,10 @@ form {
 #root {
     height: 100%;
     background-color:rgb(47, 47, 47);
+}
+
+.content ul h1 h2 p hr dl pre {
+    margin: 0;
 }
 
 mark {
