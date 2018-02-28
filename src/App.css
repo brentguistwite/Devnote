@@ -305,7 +305,7 @@ form {
     background-color:rgb(47, 47, 47);
 }
 
-.content ul h1 h2 p hr dl pre {
+ ul, h1, h2, p, hr, dl, pre {
     margin: 0;
 }
 
