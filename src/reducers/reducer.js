@@ -31,8 +31,29 @@ const initialState = {
     tags: [''],
   },
   currentDraft: {
-    title: 'Devnote',
-    content: 'A note-taking app for programmers with a focus on markdown and a simple, yet elegant design.',
+    title: '',
+    content: 
+      `<p hidden />
+===========================>See the power of markdown by checking "Preview notes"<===========================
+
+<h1 style="text-align:center; font-size: 50px;" />Devnote 
+<h2 />A note-taking app for programmers with a focus on markdown and a simple, yet elegant design.
+      
+      
+---
+Writing code in your notes ==feelsgoodman.==
+\n\`\`\` js
+const devNote = "My favorite note taking app!";
+
+function isDevnoteRightForMe(human) {
+  if (human.questions === "Why should I use Devnote over my current note taking app? ") {
+      return "Devnote is an open source note taking app made with developers in mind!";
+  } else if (human.questions === "Im not a developer, is Devnote for me?") {
+      return "Absolutely, anyone can make their notes better with an extremely minimal amount of markdown syntax. Heck, you could not use at all an your notes will still look better!";
+    }
+};
+\`\`\`
+![happy](https://media.giphy.com/media/bSqqbVjGFtQ2c/giphy.gif)`,
     tags: [''],
     id: null,
   },
@@ -76,9 +97,7 @@ const reducer = (state = initialState, action) => {
       error: null,
     };
   case FETCH_NOTES_SUCCESS:
-    console.log(action.notes);
-  // fix conditional that says if no notes then ''
-    if (!state.currentDraft) {
+    if (action.notes.length === 0) {
       return {
         ...state,
         loading: false,
@@ -87,15 +106,13 @@ const reducer = (state = initialState, action) => {
           CHEAT_SHEET,
           ...action.notes,
         ],
-        currentDraft: CHEAT_SHEET,
       };
     } else {
       return {
         ...state,
         loading: false,
         error: null,
-        notes: [ 
-          CHEAT_SHEET,
+        notes: [
           ...action.notes,
         ],
       };
