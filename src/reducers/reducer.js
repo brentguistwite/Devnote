@@ -14,6 +14,7 @@ import {
   UPDATE_SEARCH,
   DELETE_NOTE_SUCCESS
 } from '../actions';
+import CHEAT_SHEET from '../components/CHEAT_SHEET';
 
 const initialState = {
   loading: false,
@@ -30,8 +31,8 @@ const initialState = {
     tags: [''],
   },
   currentDraft: {
-    title: '',
-    content: '',
+    title: 'Devnote',
+    content: 'A note-taking app for programmers with a focus on markdown and a simple, yet elegant design.',
     tags: [''],
     id: null,
   },
@@ -75,22 +76,28 @@ const reducer = (state = initialState, action) => {
       error: null,
     };
   case FETCH_NOTES_SUCCESS:
-
+    console.log(action.notes);
   // fix conditional that says if no notes then ''
-    if (!state.currentDraft.id) {
+    if (!state.currentDraft) {
       return {
         ...state,
         loading: false,
         error: null,
-        notes: action.notes,
-        currentDraft: action.notes[0],
+        notes: [
+          CHEAT_SHEET,
+          ...action.notes,
+        ],
+        currentDraft: CHEAT_SHEET,
       };
     } else {
       return {
         ...state,
         loading: false,
         error: null,
-        notes: action.notes,
+        notes: [ 
+          CHEAT_SHEET,
+          ...action.notes,
+        ],
       };
     }
     
