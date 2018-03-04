@@ -49,7 +49,7 @@ function isDevnoteRightForMe(human) {
   if (human.questions === "Why should I use Devnote over my current note taking app? ") {
       return "Devnote is an open source note taking app made with developers in mind!";
   } else if (human.questions === "Im not a developer, is Devnote for me?") {
-      return "Absolutely, anyone can make their notes better with an extremely minimal amount of markdown syntax. Heck, you could not use at all an your notes will still look better!";
+      return "Absolutely, anyone can make their notes better with an extremely minimal amount of markdown syntax. Heck, you could not use markdown at all an your notes will still look better!";
     }
 };
 \`\`\`
