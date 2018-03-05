@@ -252,7 +252,7 @@ input, textarea {
 }
 
 .content {
-    height: 100%;
+    height: 95%;
     font-size: 20px;
     padding: 0px 100px;
     overflow: auto;
@@ -331,7 +331,7 @@ mark {
 }
 
 .hljs-number {
-    color: #FFC69E;
+    color: rgb(253, 180, 128);
 }
 
 .hljs-built_in {
