@@ -14,6 +14,7 @@ import {
   UPDATE_SEARCH,
   DELETE_NOTE_SUCCESS
 } from '../actions';
+import CHEAT_SHEET from '../components/CHEAT_SHEET';
 
 const initialState = {
   loading: false,
@@ -31,7 +32,28 @@ const initialState = {
   },
   currentDraft: {
     title: '',
-    content: '',
+    content: 
+      `<p hidden />
+===========================>See the power of markdown by checking "Preview notes"<===========================
+
+<h1 style="text-align:center; font-size: 50px;" />Devnote 
+<h2 />A note-taking app for programmers with a focus on markdown and a simple, yet elegant design.
+      
+      
+---
+Writing code in your notes ==feelsgoodman.==
+\n\`\`\` js
+const devNote = "My favorite note taking app!";
+
+function isDevnoteRightForMe(human) {
+  if (human.questions === "Why should I use Devnote over my current note taking app? ") {
+      return "Devnote is an open source note taking app made with developers in mind!";
+  } else if (human.questions === "Im not a developer, is Devnote for me?") {
+      return "Absolutely, anyone can make their notes better with an extremely minimal amount of markdown syntax. Heck, you could not use markdown at all an your notes will still look better!";
+    }
+};
+\`\`\`
+![happy](https://media.giphy.com/media/bSqqbVjGFtQ2c/giphy.gif)`,
     tags: [''],
     id: null,
   },
@@ -75,22 +97,24 @@ const reducer = (state = initialState, action) => {
       error: null,
     };
   case FETCH_NOTES_SUCCESS:
-
-  // fix conditional that says if no notes then ''
-    if (!state.currentDraft.id) {
+    if (action.notes.length === 0) {
       return {
         ...state,
         loading: false,
         error: null,
-        notes: action.notes,
-        currentDraft: action.notes[0],
+        notes: [
+          CHEAT_SHEET,
+          ...action.notes,
+        ],
       };
     } else {
       return {
         ...state,
         loading: false,
         error: null,
-        notes: action.notes,
+        notes: [
+          ...action.notes,
+        ],
       };
     }
     
