@@ -20,6 +20,7 @@ View it live [here](https://devnote-demo.netlify.com/).
 - Push files to GitHub `git push -u origin master`
 
 ### Deploy Your Server
+- *You can use whatever website you like to host your project. I'm using Heroku for this example.*
 - Create a Heroku app for your server(call it whatever you like) `heroku create my-devnote-server`
 - Push your code to Heroku `git push heroku master`
 
@@ -36,11 +37,41 @@ View it live [here](https://devnote-demo.netlify.com/).
 - Push files to GitHub `git push -u origin master`
 
 ### Deploy Your Client 
-- Create a production build of the client `REACT_APP_API_BASE_URL="https://my-devnote-server.herokuapp.com" npm run build`
-  - replace the url with the url for your Heroku app that your created
+- Create a production build of the client `REACT_APP_API_BASE_URL=https://my-devnote-server.herokuapp.com npm run build`
+  - replace the url with the url for your Heroku app that your created.
   - Make sure to run as **one command**.
+- *You can use whatever website you like to host your project. I'm using Netlify for this example.*
+- Install Netlify `npm install -g netlify-cli`
+- Create a Netlify app: `netlify create my-devnote-client`
+  - If you are new to Netlify this should open a web browser and allow you to sign up.
+  - Be sure to add `.netlify` to `.gitignore`
+- Deploy your app `netlify deploy -p ./build`
+  - Youre browser will open & prompt you to authenticate.
+  - You shouldn't need to authenticate for subsequent deployments.
+  
+### Configure Database
+- This app is currently set up to only be compatible with MongoDB.
+- If you don't already have an account on mLab, you can create one for free [here](https://mlab.com/signup/).
+- Once logged in, navigate to "MongoDB Deployments" and click "Create new".
+- Under "Plan type" select the free one "Sandbox".
+- Select your region.
+- Name your database.
+- Submit order(total price should read "FREE").
+- Click to open your new database.
+- Navigate to the "Users" tab and click "Add database user".
+- Once created, find the section at the top that reads `To connect using a driver via the standard MongoDB URI (what's this?):`
+- The line you want to copy should look something like this `mongodb://<dbuser>:<dbpassword>@ds123456.mlab.com:12345/database-name`.
+  - Replace <dbuser> and <dbpassword>
+  - It should now look something like this `mongodb://username:password@ds123456.mlab.com:12345/database-name`.
 
 
+### Configure The Server To Accept Requests From The Client
+- Move back into your server folder
+- Add a `CLIENT_ORIGIN` environment variable to your Heroku app pointing to your deployed client: `heroku config:set CLIENT_ORIGIN=https://YOUR_NETLIFY_PROJECT_NAME.netlify.com`
+  - Make sure there is *no* trailing slash!
+- Run `heroku restart` to refresh heroku with your new environment variable.
+
+### 
 ## Technologies Used
 - Mocha & Chai for testing
 - Travis CI
