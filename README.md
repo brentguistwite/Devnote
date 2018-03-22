@@ -8,12 +8,12 @@ View it live [here](https://devnote-demo.netlify.com/).
 ## Remarkable
 Markdown parser [demo](https://jonschlinkert.github.io/remarkable/demo/).
 
-[License](https://github.com/jonschlinkert/remarkable/blob/master/LICENSE).
+[License](https://github.com/jonschlinkert/remarkable/blob/master/LICENSE)
 
 ## Highlight.js
 Javascript syntax highlighter [demo](https://highlightjs.org/).
 
-[License](https://github.com/isagalaev/highlight.js/blob/master/LICENSE).
+[License](https://github.com/isagalaev/highlight.js/blob/master/LICENSE)
 
 ## Getting Started 
 
