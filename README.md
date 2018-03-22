@@ -1,6 +1,17 @@
+[![Build Status](https://img.shields.io/travis/npm/npm/latest.svg?style=flat-square)](https://travis-ci.org/brentguistwite/Devnote-back-end) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/brentguistwite/Devnote/pull/new/master) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/brentguistwite/Devnote/blob/master/LICENSE)
+
+
 # Devnote v1
 A note-taking app for programmers with syntax highlighting and markdown support. 
 View it live [here](https://devnote-demo.netlify.com/).
+
+## Remarkable
+Markdown parser [demo](https://jonschlinkert.github.io/remarkable/demo/)
+You can read the[License](https://github.com/jonschlinkert/remarkable/blob/master/LICENSE) here.
+
+## Highlight.js
+Javascript syntax highlighter [demo](https://highlightjs.org/)
+You can read the [License](https://github.com/isagalaev/highlight.js/blob/master/LICENSE) here.
 
 ## Getting Started 
 
@@ -94,3 +105,6 @@ View it live [here](https://devnote-demo.netlify.com/).
 - Git
 - Highlight.js
 - Remarkable.js
+
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
